@@ -14,6 +14,20 @@
 		D4EFE15C1BE8E27600672746 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4EFE15B1BE8E27600672746 /* Images.xcassets */; };
 		D4EFE15F1BE8E27600672746 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EFE15D1BE8E27600672746 /* LaunchScreen.xib */; };
 		D4EFE16B1BE8E27600672746 /* DancingMenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE16A1BE8E27600672746 /* DancingMenTests.swift */; };
+		D4EFE18B1BE906B800672746 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE18A1BE906B800672746 /* FontManager.swift */; };
+		D4EFE18D1BE9079100672746 /* Semaphore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE18C1BE9079100672746 /* Semaphore.swift */; };
+		D4EFE18F1BE907BC00672746 /* FontProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE18E1BE907BC00672746 /* FontProtocol.swift */; };
+		D4EFE1921BE9085C00672746 /* DancingMen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1911BE9085C00672746 /* DancingMen.swift */; };
+		D4EFE1941BE908B800672746 /* Morse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1931BE908B800672746 /* Morse.swift */; };
+		D4EFE1961BE908EC00672746 /* Masonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1951BE908EC00672746 /* Masonic.swift */; };
+		D4EFE1981BE9091800672746 /* Braille.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1971BE9091800672746 /* Braille.swift */; };
+		D4EFE19C1BE9099100672746 /* Maritime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE19B1BE9099100672746 /* Maritime.swift */; };
+		D4EFE1A31BE918A500672746 /* DancingMen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4EFE19D1BE918A500672746 /* DancingMen.ttf */; };
+		D4EFE1A41BE918A500672746 /* Maritime.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4EFE19E1BE918A500672746 /* Maritime.ttf */; };
+		D4EFE1A51BE918A500672746 /* Masonic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4EFE19F1BE918A500672746 /* Masonic.ttf */; };
+		D4EFE1A61BE918A500672746 /* Morse.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4EFE1A01BE918A500672746 /* Morse.ttf */; };
+		D4EFE1A71BE918A500672746 /* Semaphore.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4EFE1A11BE918A500672746 /* Semaphore.ttf */; };
+		D4EFE1A81BE918A500672746 /* Swell-Braille.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4EFE1A21BE918A500672746 /* Swell-Braille.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +52,20 @@
 		D4EFE1641BE8E27600672746 /* DancingMenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DancingMenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EFE1691BE8E27600672746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4EFE16A1BE8E27600672746 /* DancingMenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DancingMenTests.swift; sourceTree = "<group>"; };
+		D4EFE18A1BE906B800672746 /* FontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		D4EFE18C1BE9079100672746 /* Semaphore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Semaphore.swift; sourceTree = "<group>"; };
+		D4EFE18E1BE907BC00672746 /* FontProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontProtocol.swift; sourceTree = "<group>"; };
+		D4EFE1911BE9085C00672746 /* DancingMen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DancingMen.swift; sourceTree = "<group>"; };
+		D4EFE1931BE908B800672746 /* Morse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Morse.swift; sourceTree = "<group>"; };
+		D4EFE1951BE908EC00672746 /* Masonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Masonic.swift; sourceTree = "<group>"; };
+		D4EFE1971BE9091800672746 /* Braille.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Braille.swift; sourceTree = "<group>"; };
+		D4EFE19B1BE9099100672746 /* Maritime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Maritime.swift; sourceTree = "<group>"; };
+		D4EFE19D1BE918A500672746 /* DancingMen.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DancingMen.ttf; sourceTree = "<group>"; };
+		D4EFE19E1BE918A500672746 /* Maritime.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Maritime.ttf; sourceTree = "<group>"; };
+		D4EFE19F1BE918A500672746 /* Masonic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Masonic.ttf; sourceTree = "<group>"; };
+		D4EFE1A01BE918A500672746 /* Morse.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Morse.ttf; sourceTree = "<group>"; };
+		D4EFE1A11BE918A500672746 /* Semaphore.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Semaphore.ttf; sourceTree = "<group>"; };
+		D4EFE1A21BE918A500672746 /* Swell-Braille.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Swell-Braille.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				D4EFE1511BE8E27600672746 /* AppDelegate.swift */,
+				D4EFE18A1BE906B800672746 /* FontManager.swift */,
+				D4EFE18E1BE907BC00672746 /* FontProtocol.swift */,
+				D4EFE1901BE907E100672746 /* Fonts */,
 				D4EFE1561BE8E27600672746 /* ViewController.swift */,
 				D4EFE1581BE8E27600672746 /* Main.storyboard */,
 				D4EFE15B1BE8E27600672746 /* Images.xcassets */,
@@ -93,6 +124,12 @@
 		D4EFE14F1BE8E27600672746 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D4EFE19D1BE918A500672746 /* DancingMen.ttf */,
+				D4EFE19E1BE918A500672746 /* Maritime.ttf */,
+				D4EFE19F1BE918A500672746 /* Masonic.ttf */,
+				D4EFE1A01BE918A500672746 /* Morse.ttf */,
+				D4EFE1A11BE918A500672746 /* Semaphore.ttf */,
+				D4EFE1A21BE918A500672746 /* Swell-Braille.ttf */,
 				D4EFE1501BE8E27600672746 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -113,6 +150,19 @@
 				D4EFE1691BE8E27600672746 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4EFE1901BE907E100672746 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D4EFE19B1BE9099100672746 /* Maritime.swift */,
+				D4EFE1931BE908B800672746 /* Morse.swift */,
+				D4EFE1951BE908EC00672746 /* Masonic.swift */,
+				D4EFE1971BE9091800672746 /* Braille.swift */,
+				D4EFE18C1BE9079100672746 /* Semaphore.swift */,
+				D4EFE1911BE9085C00672746 /* DancingMen.swift */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +247,12 @@
 			files = (
 				D4EFE15A1BE8E27600672746 /* Main.storyboard in Resources */,
 				D4EFE15F1BE8E27600672746 /* LaunchScreen.xib in Resources */,
+				D4EFE1A71BE918A500672746 /* Semaphore.ttf in Resources */,
+				D4EFE1A81BE918A500672746 /* Swell-Braille.ttf in Resources */,
+				D4EFE1A61BE918A500672746 /* Morse.ttf in Resources */,
+				D4EFE1A41BE918A500672746 /* Maritime.ttf in Resources */,
+				D4EFE1A51BE918A500672746 /* Masonic.ttf in Resources */,
+				D4EFE1A31BE918A500672746 /* DancingMen.ttf in Resources */,
 				D4EFE15C1BE8E27600672746 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,8 +271,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4EFE18B1BE906B800672746 /* FontManager.swift in Sources */,
+				D4EFE1981BE9091800672746 /* Braille.swift in Sources */,
+				D4EFE1961BE908EC00672746 /* Masonic.swift in Sources */,
 				D4EFE1571BE8E27600672746 /* ViewController.swift in Sources */,
+				D4EFE18D1BE9079100672746 /* Semaphore.swift in Sources */,
 				D4EFE1521BE8E27600672746 /* AppDelegate.swift in Sources */,
+				D4EFE1941BE908B800672746 /* Morse.swift in Sources */,
+				D4EFE1921BE9085C00672746 /* DancingMen.swift in Sources */,
+				D4EFE18F1BE907BC00672746 /* FontProtocol.swift in Sources */,
+				D4EFE19C1BE9099100672746 /* Maritime.swift in Sources */,
 				D4EFE1551BE8E27600672746 /* DancingMen.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -36,6 +36,15 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Morse.ttf</string>
+		<string>Swelle-Braille.ttf</string>
+		<string>Maritime.ttf</string>
+		<string>Masonic.ttf</string>
+		<string>Semaphore.ttf</string>
+		<string>DancingMen.ttf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
