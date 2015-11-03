@@ -11,5 +11,9 @@ import Foundation
 struct Masonic: FontProtocol {
     let name = "Masonic Cipher"
     let title = "Masonic Cipher"
-    let size: Float = 20
+    let size: Float = 30
+    
+    func transform(elem: String) -> String {
+        return elem
+    }
 }

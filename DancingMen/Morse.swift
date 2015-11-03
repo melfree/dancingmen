@@ -11,5 +11,9 @@ import Foundation
 struct Morse: FontProtocol {
     let name = "morse"
     let title = "Morse Code"
-    let size: Float = 20
+    let size: Float = 30
+    
+    func transform(elem: String) -> String {
+        return elem
+    }
 }

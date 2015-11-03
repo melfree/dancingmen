@@ -11,5 +11,9 @@ import Foundation
 struct Braille: FontProtocol {
     let name = "Swell Braille"
     let title = "Braille"
-    let size: Float = 20
+    let size: Float = 40
+    
+    func transform(elem: String) -> String {
+        return elem
+    }
 }

@@ -20,4 +20,18 @@ struct FontManager {
     mutating func selectFont(index: Int) {
         currentFont = fonts[index]
     }
+    
+    func transform(text: String) - > {
+        // Transform text into array
+        let textArray = Array(text)
+    
+        // Map each value in the array to a new value, as determined by a function
+        // passed in from the currentFont struct
+        let mappedArray = map(textArray, currentFont.transform)
+    
+        // Return the new string
+        let transformedText = "".join(mappedArray)
+    
+        return transformedText
+    }
 }

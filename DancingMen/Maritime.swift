@@ -11,5 +11,9 @@ import Foundation
 struct Maritime: FontProtocol {
     let name = "Maritime Flags"
     let title = "Maritime Flags"
-    let size: Float = 20
+    let size: Float = 30
+    
+    func transform(elem: String) -> String {
+        return elem
+    }
 }

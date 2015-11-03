@@ -11,5 +11,9 @@ import Foundation
 struct DancingMen: FontProtocol {
     let name = "GL-DancingMen"
     let title = "Dancing Men Code"
-    let size: Float = 30
+    let size: Float = 50
+    
+    func transform(elem: String) -> String {
+        
+    }
 }

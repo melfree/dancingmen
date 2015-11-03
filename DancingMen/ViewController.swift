@@ -26,6 +26,8 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
         fontPicker.delegate = self
         fontPicker.dataSource = self
         
+        // Make sure font and output text are set
+        updateOutputText()
         changeFont()
     }
 
@@ -33,11 +35,18 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // # MARK - IB actions
+    
+    @IBAction func didClickReset() {
+        resetInputText()
+        updateOutputText()
+    }
 
     // # MARK - Text view
     
     func textViewDidChange(textView: UITextView) {
-        outputLabel.text = inputField.text
+        updateOutputText()
     }
     
     // # MARK - Picker view
@@ -57,11 +66,21 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
     }
 
     // # MARK - Change font
+    
     func changeFont() {
         var currentFont = fontManager.currentFont
         var name = currentFont.name
         var size: CGFloat = CGFloat(currentFont.size)
         outputLabel.font = UIFont(name: name, size: size)
+    }
+    
+    func updateOutputText() {
+        var text = inputField.text
+        outputLabel.text = fontManager.transform(text)
+    }
+    
+    func resetInputText() {
+        inputField.text = ""
     }
 }
 

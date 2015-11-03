@@ -11,5 +11,9 @@ import Foundation
 struct Semaphore: FontProtocol {
     let name = "Semaphore"
     let title = "Semaphore"
-    let size: Float = 30
+    let size: Float = 40
+    
+    func transform(elem: String) -> String {
+        return elem
+    }
 }

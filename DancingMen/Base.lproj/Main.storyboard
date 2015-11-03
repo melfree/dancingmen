@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Swell-Braille.ttf">
@@ -18,27 +19,54 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Translate this" translatesAutoresizingMaskIntoConstraints="NO" id="BJq-xE-7BY">
-                                <rect key="frame" x="180" y="42" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yn-4S-EOH">
-                                <rect key="frame" x="83" y="116" width="359" height="162"/>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="abcdef.asdfasdf" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAK-B2-8Ql">
-                                <rect key="frame" x="64" y="269" width="575" height="254"/>
-                                <fontDescription key="fontDescription" name="Swell-Braille" family="Swell Braille" pointSize="74"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Output text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAK-B2-8Ql">
+                                <rect key="frame" x="40" y="331" width="240" height="43"/>
+                                <fontDescription key="fontDescription" name="Swell-Braille" family="Swell Braille" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDR-Lf-cxW">
+                                <rect key="frame" x="40" y="263" width="40" height="30"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" red="0.0024961902751886589" green="0.26608819121408833" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickReset" destination="BYZ-38-t0r" eventType="touchUpInside" id="8WX-QJ-UHB"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" text="Translate this" translatesAutoresizingMaskIntoConstraints="NO" id="BJq-xE-7BY">
+                                <rect key="frame" x="40" y="189" width="240" height="73"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="73" id="XIy-07-sTI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
+                            </textView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yn-4S-EOH">
+                                <rect key="frame" x="99" y="9" width="123" height="162"/>
+                            </pickerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.87608967687225847" green="1" blue="0.78630128379092834" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FAK-B2-8Ql" secondAttribute="bottom" constant="194" id="QyP-8z-bjE"/>
+                            <constraint firstItem="FAK-B2-8Ql" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="311" id="XuI-af-Aah"/>
+                            <constraint firstAttribute="centerX" secondItem="FAK-B2-8Ql" secondAttribute="centerX" id="aaK-mp-7Wn"/>
+                            <constraint firstItem="BJq-xE-7BY" firstAttribute="top" secondItem="8yn-4S-EOH" secondAttribute="bottom" constant="18" id="b0Q-dM-8gF"/>
+                            <constraint firstItem="8yn-4S-EOH" firstAttribute="centerX" secondItem="FAK-B2-8Ql" secondAttribute="centerX" id="dvV-NQ-lhP"/>
+                            <constraint firstItem="8yn-4S-EOH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="83" id="iV9-LG-QPb"/>
+                            <constraint firstItem="BJq-xE-7BY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="smb-3F-TqA"/>
+                            <constraint firstItem="FAK-B2-8Ql" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="tkE-7J-bkE"/>
+                            <constraint firstItem="FAK-B2-8Ql" firstAttribute="top" secondItem="BJq-xE-7BY" secondAttribute="bottom" constant="69" id="vuR-l3-PVI"/>
+                            <constraint firstItem="BJq-xE-7BY" firstAttribute="centerX" secondItem="FAK-B2-8Ql" secondAttribute="centerX" id="ybl-mf-OIk"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="fontPicker" destination="8yn-4S-EOH" id="NVQ-bv-fQs"/>
                         <outlet property="inputField" destination="BJq-xE-7BY" id="phF-hv-wcU"/>
