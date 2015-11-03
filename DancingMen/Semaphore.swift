@@ -13,7 +13,7 @@ struct Semaphore: FontProtocol {
     let title = "Semaphore"
     let size: Float = 40
     
-    func transform(elem: String) -> String {
-        return elem
+    func transform(textArray: [Character]) -> [Character] {
+        return textArray
     }
 }

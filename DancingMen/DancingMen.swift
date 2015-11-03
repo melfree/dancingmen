@@ -13,7 +13,7 @@ struct DancingMen: FontProtocol {
     let title = "Dancing Men Code"
     let size: Float = 50
     
-    func transform(elem: String) -> String {
-        
+    func transform(textArray: [Character]) -> [Character] {
+        return textArray
     }
 }

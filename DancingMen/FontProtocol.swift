@@ -14,5 +14,5 @@ protocol FontProtocol {
     var size: Float { get }
     
     // Transforms input into font-compatible input
-    func transform(elem: String) -> String
+    func transform(textArray: [Character]) -> [Character]
 }

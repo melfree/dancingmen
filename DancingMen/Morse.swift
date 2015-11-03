@@ -13,7 +13,7 @@ struct Morse: FontProtocol {
     let title = "Morse Code"
     let size: Float = 30
     
-    func transform(elem: String) -> String {
-        return elem
+    func transform(textArray: [Character]) -> [Character] {
+        return textArray
     }
 }

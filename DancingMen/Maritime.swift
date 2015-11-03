@@ -13,7 +13,7 @@ struct Maritime: FontProtocol {
     let title = "Maritime Flags"
     let size: Float = 30
     
-    func transform(elem: String) -> String {
-        return elem
+    func transform(textArray: [Character]) -> [Character] {
+        return textArray
     }
 }
