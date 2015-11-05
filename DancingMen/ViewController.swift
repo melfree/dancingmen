@@ -21,6 +21,12 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Set styles for input field
+        inputField.layer.cornerRadius = 5.0
+        inputField.layer.borderColor = UIColor.grayColor().CGColor
+        inputField.layer.borderWidth = 1.0
+        inputField.clipsToBounds = true
+        
         // Listen for input text changes
         inputField.delegate = self
         fontPicker.delegate = self
@@ -60,6 +66,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         fontManager.selectFont(row)
         changeFont()
+        updateOutputText()
     }
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return fontManager.fonts[row].title
