@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
     
     @IBOutlet weak var inputField: UITextView!
     @IBOutlet weak var outputLabel: UILabel!
-    
+    @IBOutlet weak var plaintextButton: UIButton!
     @IBOutlet weak var fontPicker: UIPickerView!
         
     var fontManager = FontManager()
@@ -33,8 +33,8 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
         fontPicker.dataSource = self
         
         // Make sure font and output text are set
-        updateOutputText()
-        changeFont()
+        updateTexts()
+        updateFonts()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,14 +45,22 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
     // # MARK - IB actions
     
     @IBAction func didClickReset() {
-        resetInputText()
-        updateOutputText()
+        inputField.text = ""
+        updateTexts()
     }
-
+    
+    @IBAction func didClickTogglePlaintext() {
+        //If Plaintext, show the output and set system font.
+        // If not Plaintext, hide the output and set chosen font.
+        fontManager.togglePlaintext()
+        updateFonts()
+        updateTexts()
+    }
+    
     // # MARK - Text view
     
     func textViewDidChange(textView: UITextView) {
-        updateOutputText()
+        updateTexts()
     }
     
     // # MARK - Picker view
@@ -65,8 +73,8 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         fontManager.selectFont(row)
-        changeFont()
-        updateOutputText()
+        updateFonts()
+        updateTexts()
     }
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return fontManager.fonts[row].title
@@ -74,20 +82,32 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
 
     // # MARK - Change font
     
-    func changeFont() {
+    func updateFonts() {
+        // Update outputLabel and inputField
         var currentFont = fontManager.currentFont
         var name = currentFont.name
         var size: CGFloat = CGFloat(currentFont.size)
-        outputLabel.font = UIFont(name: name, size: size)
+        var font = UIFont(name: name, size: size)
+        outputLabel.font = font
+        if fontManager.isPlaintext {
+            inputField.font = UIFont.systemFontOfSize(30)
+            outputLabel.hidden = false
+        } else {
+            inputField.font = font
+            outputLabel.hidden = true
+        }
     }
     
-    func updateOutputText() {
-        var text = inputField.text
-        outputLabel.text = fontManager.transform(text)
-    }
-    
-    func resetInputText() {
-        inputField.text = ""
+    func updateTexts() {
+        var input = inputField.text
+        fontManager.inputText = input
+        var output = fontManager.transformedText()
+        outputLabel.text = output
+        if !fontManager.isPlaintext {
+          inputField.text = output
+        } else {
+          inputField.text = input
+        }
     }
 }
 

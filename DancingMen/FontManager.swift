@@ -11,19 +11,27 @@ import Foundation
 struct FontManager {
     let fonts: [FontProtocol] = [Semaphore(), DancingMen(), Morse(), Maritime(), Masonic(), Braille()]
     
-    var currentFont: FontProtocol;
+    var currentFont: FontProtocol
+    var inputText: String
+    var isPlaintext: Bool
     
     init() {
+        inputText = ""
         currentFont = fonts[0]
+        isPlaintext = true
     }
     
     mutating func selectFont(index: Int) {
         currentFont = fonts[index]
     }
     
-    func transform(text: String) -> (String) {
+    mutating func togglePlaintext() {
+        isPlaintext = !isPlaintext
+    }
+    
+    func transformedText() -> (String) {
         // Transform text into array
-        let textArray = Array(text)
+        let textArray = Array(inputText)
     
         // Map each value in the array to a new value, as determined by a function
         // passed in from the currentFont struct

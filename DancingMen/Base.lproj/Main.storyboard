@@ -32,7 +32,7 @@
                                 <rect key="frame" x="40" y="263" width="40" height="30"/>
                                 <state key="normal" title="Reset">
                                     <color key="titleColor" red="0.0024961902751886589" green="0.26608819121408833" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.85973985220000004" green="0.86153488830000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="didClickReset" destination="BYZ-38-t0r" eventType="touchUpInside" id="8WX-QJ-UHB"/>
@@ -50,6 +50,26 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yn-4S-EOH">
                                 <rect key="frame" x="99" y="9" width="123" height="162"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1F-we-Ryu">
+                                <rect key="frame" x="239" y="263" width="41" height="30"/>
+                                <state key="normal" title="Cheat">
+                                    <color key="titleColor" red="0.0024961902749999999" green="0.26608819119999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.85973985220000004" green="0.86153488830000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Fqx-Oe-WMm" kind="presentation" id="tQW-La-ZOi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9r-fb-ctT">
+                                <rect key="frame" x="130" y="263" width="60" height="30"/>
+                                <state key="normal" title="Plaintext">
+                                    <color key="titleColor" red="0.0024961902749999999" green="0.26608819119999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.85973985220000004" green="0.86153488830000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickTogglePlaintext" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tds-Yf-4Vt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.87608967687225847" green="1" blue="0.78630128379092834" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -71,10 +91,30 @@
                         <outlet property="fontPicker" destination="8yn-4S-EOH" id="NVQ-bv-fQs"/>
                         <outlet property="inputField" destination="BJq-xE-7BY" id="phF-hv-wcU"/>
                         <outlet property="outputLabel" destination="FAK-B2-8Ql" id="JWX-Ch-4ff"/>
+                        <outlet property="plaintextButton" destination="F9r-fb-ctT" id="dAF-6g-L1H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Keypad View Controller-->
+        <scene sceneID="YBm-Os-a3a">
+            <objects>
+                <viewController id="Fqx-Oe-WMm" customClass="KeypadViewController" customModule="DancingMen" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HiK-UB-l9c"/>
+                        <viewControllerLayoutGuide type="bottom" id="Loo-KI-nnU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Vl-w4-gx7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U8I-G4-N2l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="837" y="289"/>
         </scene>
     </scenes>
 </document>

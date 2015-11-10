@@ -14,6 +14,7 @@ struct Semaphore: FontProtocol {
     let size: Float = 40
     
     func transform(textArray: [Character]) -> [Character] {
-        return textArray
+        // All characters in Semaphore are lowercase.
+        return map(textArray) { Character(String($0).lowercaseString) }
     }
 }

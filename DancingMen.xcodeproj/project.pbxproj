@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D42A04581BF231F500700E6F /* KeypadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A04571BF231F500700E6F /* KeypadViewController.swift */; };
 		D4EFE1521BE8E27600672746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1511BE8E27600672746 /* AppDelegate.swift */; };
 		D4EFE1551BE8E27600672746 /* DancingMen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1531BE8E27600672746 /* DancingMen.xcdatamodeld */; };
 		D4EFE1571BE8E27600672746 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1561BE8E27600672746 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D42A04571BF231F500700E6F /* KeypadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeypadViewController.swift; sourceTree = "<group>"; };
 		D4EFE14C1BE8E27600672746 /* DancingMen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DancingMen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EFE1501BE8E27600672746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4EFE1511BE8E27600672746 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				D4EFE15D1BE8E27600672746 /* LaunchScreen.xib */,
 				D4EFE1531BE8E27600672746 /* DancingMen.xcdatamodeld */,
 				D4EFE14F1BE8E27600672746 /* Supporting Files */,
+				D42A04571BF231F500700E6F /* KeypadViewController.swift */,
 			);
 			path = DancingMen;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				D4EFE1921BE9085C00672746 /* DancingMen.swift in Sources */,
 				D4EFE18F1BE907BC00672746 /* FontProtocol.swift in Sources */,
 				D4EFE19C1BE9099100672746 /* Maritime.swift in Sources */,
+				D42A04581BF231F500700E6F /* KeypadViewController.swift in Sources */,
 				D4EFE1551BE8E27600672746 /* DancingMen.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,6 +483,7 @@
 				D4EFE1701BE8E27600672746 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4EFE1711BE8E27600672746 /* Build configuration list for PBXNativeTarget "DancingMenTests" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +492,7 @@
 				D4EFE1731BE8E27600672746 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
