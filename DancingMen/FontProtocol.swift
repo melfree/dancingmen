@@ -12,6 +12,7 @@ protocol FontProtocol {
     var name: String { get }
     var title: String { get }
     var size: Float { get }
+    var flavorText: String { get }
     
     // Transforms input into font-compatible input
     func transform(textArray: [Character]) -> [Character]

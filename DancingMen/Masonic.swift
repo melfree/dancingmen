@@ -12,6 +12,7 @@ struct Masonic: FontProtocol {
     let name = "Masonic Cipher"
     let title = "Masonic Cipher"
     let size: Float = 30
+    let flavorText = "mas"
     
     func transform(textArray: [Character]) -> [Character] {
         return textArray

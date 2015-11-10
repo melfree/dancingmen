@@ -8,9 +8,16 @@
 
 import UIKit
 
+protocol KeypadMasterDelegate {
+    func currentFont() -> UIFont
+    func addLetter(letter: Character)
+}
+
 class KeypadViewController: UIViewController {
     
     @IBOutlet var letterButtons: [UIButton]!
+    
+    var delegate: KeypadMasterDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,37 +33,43 @@ class KeypadViewController: UIViewController {
     
     func setup() {
         var normal = UIFont.systemFontOfSize(30)
-        var custom = UIFont.systemFontOfSize(30)
+        var custom = delegate.currentFont()
         var i = 0
         var j = 3
         for char in "abcdefghijklmnopqrstuvwxyz" {
-            for font in [normal,custom] {
-                let x = CGFloat( 60 * (i % 6) + (20 * ((1+i) % 2)))
-                //+ self.view.frame.origin.x
-                let y = CGFloat( (j/3) * 50)
-                let button :UIButton = UIButton(frame: CGRectMake(x, y, 45, 45))
+            for font in [normal, custom] {
+                i = i%6
+                var even = i/2
+                
+                let x = CGFloat( 50 * (i % 6) + (20 * even) + 5 )
+                let y = CGFloat( (j/3) * 55)
+                let width = CGFloat( 45 + 10 * (i%2) )
+                let height = CGFloat( 45 )
+                let button :UIButton = UIButton(frame: CGRectMake(x, y, width, height))
                 button.backgroundColor = UIColor.greenColor()
                 button.setTitle(String(char), forState: UIControlState.Normal)
+                button.showsTouchWhenHighlighted = true
                 button.titleLabel!.font = font
+                button.titleLabel!.adjustsFontSizeToFitWidth = true
+                button.addTarget(self, action: "buttonClicked:", forControlEvents: .TouchUpInside)
                 self.view.addSubview(button)
+            
                 i++
             }
             j++
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func buttonClicked(sender: UIButton) {
+        var input = sender.titleLabel!.text
+        delegate.addLetter(Character(input!))
     }
-    */
     
     @IBAction func didClickBack() {
+        goBack()
+    }
+    
+    func goBack() {
       self.dismissViewControllerAnimated(true, completion: nil)
     }
 

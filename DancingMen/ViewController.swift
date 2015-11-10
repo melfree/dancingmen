@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+
+
+class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate, FontMasterDelegate {
     
     @IBOutlet weak var inputField: UITextView!
     @IBOutlet weak var outputLabel: UILabel!
-    @IBOutlet weak var plaintextButton: UIButton!
-    @IBOutlet weak var fontPicker: UIPickerView!
+    @IBOutlet weak var fontTitle: UILabel!
         
     var fontManager = FontManager()
 
@@ -29,8 +30,6 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
         
         // Listen for input text changes
         inputField.delegate = self
-        fontPicker.delegate = self
-        fontPicker.dataSource = self
         
         // Make sure font and output text are set
         updateTexts()
@@ -62,40 +61,20 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
     func textViewDidChange(textView: UITextView) {
         updateTexts()
     }
-    
-    // # MARK - Picker view
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return fontManager.fonts.count
-    }
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        fontManager.selectFont(row)
-        updateFonts()
-        updateTexts()
-    }
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return fontManager.fonts[row].title
-    }
 
     // # MARK - Change font
     
     func updateFonts() {
         // Update outputLabel and inputField
-        var currentFont = fontManager.currentFont
-        var name = currentFont.name
-        var size: CGFloat = CGFloat(currentFont.size)
-        var font = UIFont(name: name, size: size)
-        outputLabel.font = font
+        outputLabel.font = currentFont()
         if fontManager.isPlaintext {
             inputField.font = UIFont.systemFontOfSize(30)
             outputLabel.hidden = false
         } else {
-            inputField.font = font
+            inputField.font = currentFont()
             outputLabel.hidden = true
         }
+        fontTitle.text = fontManager.currentFont.title + " Cipher"
     }
     
     func updateTexts() {
@@ -108,6 +87,56 @@ class ViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate
         } else {
           inputField.text = input
         }
+    }
+    
+    // # MARK - KeypadDelegate functions
+    
+    func currentFont() -> UIFont {
+        var currentFont = fontManager.currentFont
+        var name = currentFont.name
+        var size: CGFloat = CGFloat(currentFont.size)
+       
+        return UIFont(name: name, size: size)!
+    }
+    
+    // # MARK - Segue
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "keypadSegue" {
+            let vc: KeypadViewController = segue.destinationViewController as! KeypadViewController
+            vc.delegate = self
+        }
+        else if segue.identifier == "fontSegue" {
+            let vc: FontViewController = segue.destinationViewController as! FontViewController
+            vc.delegate = self
+        }
+    }
+    
+    // # Mark - Keypad delegate
+    
+    func addLetter(letter: Character) {
+        inputField.text = inputField.text + String(letter)
+        updateTexts()
+    }
+    
+    // # Mark - Font delegate
+    
+    func currentFontFlavorText() -> String {
+        return fontManager.currentFont.flavorText
+    }
+    
+    func numberOfFonts() -> Int {
+        return fontManager.fonts.count
+    }
+    
+    func selectFont(row: Int) {
+        fontManager.selectFont(row)
+        updateFonts()
+        updateTexts()
+    }
+    
+    func fontTitle(row: Int) -> String {
+        return fontManager.fonts[row].title
     }
 }
 

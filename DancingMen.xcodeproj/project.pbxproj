@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D42A04581BF231F500700E6F /* KeypadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A04571BF231F500700E6F /* KeypadViewController.swift */; };
+		D42A045A1BF2AAFB00700E6F /* FontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A04591BF2AAFB00700E6F /* FontViewController.swift */; };
 		D4EFE1521BE8E27600672746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1511BE8E27600672746 /* AppDelegate.swift */; };
 		D4EFE1551BE8E27600672746 /* DancingMen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1531BE8E27600672746 /* DancingMen.xcdatamodeld */; };
 		D4EFE1571BE8E27600672746 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1561BE8E27600672746 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		D42A04571BF231F500700E6F /* KeypadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeypadViewController.swift; sourceTree = "<group>"; };
+		D42A04591BF2AAFB00700E6F /* FontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontViewController.swift; sourceTree = "<group>"; };
 		D4EFE14C1BE8E27600672746 /* DancingMen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DancingMen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EFE1501BE8E27600672746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4EFE1511BE8E27600672746 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				D4EFE1531BE8E27600672746 /* DancingMen.xcdatamodeld */,
 				D4EFE14F1BE8E27600672746 /* Supporting Files */,
 				D42A04571BF231F500700E6F /* KeypadViewController.swift */,
+				D42A04591BF2AAFB00700E6F /* FontViewController.swift */,
 			);
 			path = DancingMen;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4EFE18B1BE906B800672746 /* FontManager.swift in Sources */,
+				D42A045A1BF2AAFB00700E6F /* FontViewController.swift in Sources */,
 				D4EFE1981BE9091800672746 /* Braille.swift in Sources */,
 				D4EFE1961BE908EC00672746 /* Masonic.swift in Sources */,
 				D4EFE1571BE8E27600672746 /* ViewController.swift in Sources */,
