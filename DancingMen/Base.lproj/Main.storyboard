@@ -108,13 +108,28 @@
                     <view key="view" contentMode="scaleToFill" id="3Vl-w4-gx7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5b9-2Z-h8N">
+                                <rect key="frame" x="143" y="438" width="35" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickBack" destination="Fqx-Oe-WMm" eventType="touchUpInside" id="Osf-QR-C7W"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5b9-2Z-h8N" firstAttribute="top" secondItem="HiK-UB-l9c" secondAttribute="bottom" constant="418" id="M7q-ye-Lqo"/>
+                            <constraint firstAttribute="centerX" secondItem="5b9-2Z-h8N" secondAttribute="centerX" constant="-0.5" id="nqm-Ko-RHW"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8I-G4-N2l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="837" y="289"/>
+            <point key="canvasLocation" x="671" y="277"/>
         </scene>
     </scenes>
 </document>
