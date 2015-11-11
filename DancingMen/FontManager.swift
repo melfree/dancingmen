@@ -29,6 +29,15 @@ struct FontManager {
         isPlaintext = !isPlaintext
     }
     
+    func currentIndex () -> Int {
+        for i in 0..<fonts.count {
+            if currentFont.name == fonts[i].name {
+                return i
+            }
+        }
+        return 0
+    }
+    
     func currentAlphabet() -> String {
         return currentFont.alphabet
     }

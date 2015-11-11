@@ -8,13 +8,18 @@
 
 import UIKit
 
-
+import Font_Awesome_Swift
 
 class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate, FontMasterDelegate {
     
     @IBOutlet weak var inputField: UITextView!
     @IBOutlet weak var outputLabel: UILabel!
     @IBOutlet weak var fontTitle: UILabel!
+    
+    @IBOutlet weak var reset: UIButton!
+    @IBOutlet weak var plaintext: UIButton!
+    @IBOutlet weak var change: UIButton!
+    @IBOutlet weak var keypad: UIButton!
         
     var fontManager = FontManager()
 
@@ -33,6 +38,12 @@ class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate
         
         // Listen for input text changes
         inputField.delegate = self
+        
+        // Styles for buttons
+        reset.setFAIcon(FAType.FAEraser, iconSize: 35, forState: .Normal)
+        keypad.setFAIcon(FAType.FAKeyboardO, iconSize: 35, forState: .Normal)
+        plaintext.setFAIcon(FAType.FACheckSquare, iconSize: 35, forState: .Normal)
+        change.setFAIcon(FAType.FAGear, iconSize: 35, forState: .Normal)
         
         // Make sure font and output text are set
         updateTexts()
@@ -92,16 +103,6 @@ class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate
         }
     }
     
-    // # MARK - KeypadDelegate functions
-    
-    func currentFont() -> UIFont {
-        var currentFont = fontManager.currentFont
-        var name = currentFont.name
-        var size: CGFloat = CGFloat(currentFont.size)
-       
-        return UIFont(name: name, size: size)!
-    }
-    
     // # MARK - Segue
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -126,6 +127,14 @@ class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate
         updateTexts()
     }
     
+    func currentFont() -> UIFont {
+        var currentFont = fontManager.currentFont
+        var name = currentFont.name
+        var size: CGFloat = CGFloat(currentFont.size)
+        
+        return UIFont(name: name, size: size)!
+    }
+    
     // # Mark - Font delegate
     
     func currentFontFlavorText() -> String {
@@ -144,6 +153,10 @@ class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate
     
     func fontTitle(row: Int) -> String {
         return fontManager.fonts[row].title
+    }
+    
+    func currentFontIndex() -> Int {
+        return fontManager.currentIndex()
     }
 }
 

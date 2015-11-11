@@ -12,6 +12,7 @@ protocol FontMasterDelegate {
     func selectFont(row: Int)
     func fontTitle(row: Int) -> String
     func currentFontFlavorText() -> String
+    func currentFontIndex() -> Int
     func numberOfFonts() -> Int
 }
 
@@ -28,6 +29,7 @@ class FontViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         // Do any additional setup after loading the view.
         fontPicker.delegate = self
         fontPicker.dataSource = self
+        fontPicker.selectRow(delegate.currentFontIndex(), inComponent: 0, animated: false)
         
         updateFont()
     }
