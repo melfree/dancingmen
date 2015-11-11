@@ -29,6 +29,10 @@ struct FontManager {
         isPlaintext = !isPlaintext
     }
     
+    func currentAlphabet() -> String {
+        return currentFont.alphabet
+    }
+    
     func transformedText() -> (String) {
         // Transform text into array
         let textArray = Array(inputText)

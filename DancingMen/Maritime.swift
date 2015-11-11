@@ -13,6 +13,7 @@ struct Maritime: FontProtocol {
     let title = "Maritime Flags"
     let size: Float = 30
     let flavorText = "Mari"
+    let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     
     func transform(textArray: [Character]) -> [Character] {
         return textArray

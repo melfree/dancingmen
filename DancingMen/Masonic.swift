@@ -13,6 +13,7 @@ struct Masonic: FontProtocol {
     let title = "Masonic"
     let size: Float = 30
     let flavorText = "mas"
+    let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     
     func transform(textArray: [Character]) -> [Character] {
         // Masonic requires that numbers become letters.

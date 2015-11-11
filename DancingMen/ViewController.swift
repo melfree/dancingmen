@@ -28,6 +28,9 @@ class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate
         inputField.layer.borderWidth = 1.0
         inputField.clipsToBounds = true
         
+        // Set styles for output text
+        outputLabel.adjustsFontSizeToFitWidth = true
+        
         // Listen for input text changes
         inputField.delegate = self
         
@@ -113,6 +116,10 @@ class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate
     }
     
     // # Mark - Keypad delegate
+    
+    func currentFontAlphabet() -> String {
+        return fontManager.currentAlphabet()
+    }
     
     func addLetter(letter: Character) {
         inputField.text = inputField.text + String(letter)

@@ -13,6 +13,7 @@ struct Braille: FontProtocol {
     let title = "Braille"
     let size: Float = 40
     let flavorText = "brail"
+    let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     
     func transform(textArray: [Character]) -> [Character] {
         return textArray

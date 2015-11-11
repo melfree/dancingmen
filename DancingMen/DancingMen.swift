@@ -13,6 +13,7 @@ struct DancingMen: FontProtocol {
     let title = "Dancing Men"
     let size: Float = 50
     let flavorText = "danc"
+    let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     
     func transform(textArray: [Character]) -> [Character] {
         // DancingMen requires that the last letter of every sentence is capitalized.

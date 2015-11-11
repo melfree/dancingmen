@@ -13,6 +13,7 @@ struct Semaphore: FontProtocol {
     let title = "Semaphore"
     let size: Float = 40
     let flavorText = "sema"
+    let alphabet = "abcdefghijklmnopqrstuvwxyz"
     
     func transform(textArray: [Character]) -> [Character] {
         // All characters in Semaphore are lowercase.
