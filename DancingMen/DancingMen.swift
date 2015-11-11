@@ -10,7 +10,7 @@ import Foundation
 
 struct DancingMen: FontProtocol {
     let name = "GL-DancingMen"
-    let title = "Dancing Men Code"
+    let title = "Dancing Men"
     let size: Float = 50
     let flavorText = "danc"
     

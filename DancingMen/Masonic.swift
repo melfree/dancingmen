@@ -10,11 +10,21 @@ import Foundation
 
 struct Masonic: FontProtocol {
     let name = "Masonic Cipher"
-    let title = "Masonic Cipher"
+    let title = "Masonic"
     let size: Float = 30
     let flavorText = "mas"
     
     func transform(textArray: [Character]) -> [Character] {
-        return textArray
+        // Masonic requires that numbers become letters.
+        return map(textArray) { char in
+            var k = String(char)
+            for i in 0...9
+            {
+                if String(i) == k {
+                    return Character(UnicodeScalar(48 + i + 17))
+                }
+            }
+            return char
+        }
     }
 }

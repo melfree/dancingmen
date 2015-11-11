@@ -10,7 +10,7 @@ import Foundation
 
 struct Morse: FontProtocol {
     let name = "morse"
-    let title = "Morse Code"
+    let title = "Morse"
     let size: Float = 30
     let flavorText = "mors"
     
