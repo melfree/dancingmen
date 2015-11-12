@@ -11,6 +11,7 @@
 		284031F9267C5F56F9FEEBBD /* Pods_DancingMenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22711D6373DC066243E92070 /* Pods_DancingMenTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D42A04581BF231F500700E6F /* KeypadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A04571BF231F500700E6F /* KeypadViewController.swift */; };
 		D42A045A1BF2AAFB00700E6F /* FontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A04591BF2AAFB00700E6F /* FontViewController.swift */; };
+		D42A045D1BF4C68D00700E6F /* ButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A045C1BF4C68D00700E6F /* ButtonManager.swift */; };
 		D4EFE1521BE8E27600672746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1511BE8E27600672746 /* AppDelegate.swift */; };
 		D4EFE1551BE8E27600672746 /* DancingMen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1531BE8E27600672746 /* DancingMen.xcdatamodeld */; };
 		D4EFE1571BE8E27600672746 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1561BE8E27600672746 /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		B4BB54F20406056E544D00E4 /* Pods-DancingMenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DancingMenTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DancingMenTests/Pods-DancingMenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D42A04571BF231F500700E6F /* KeypadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeypadViewController.swift; sourceTree = "<group>"; tabWidth = 5; };
 		D42A04591BF2AAFB00700E6F /* FontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontViewController.swift; sourceTree = "<group>"; };
+		D42A045C1BF4C68D00700E6F /* ButtonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonManager.swift; sourceTree = "<group>"; };
 		D4EFE14C1BE8E27600672746 /* DancingMen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DancingMen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EFE1501BE8E27600672746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4EFE1511BE8E27600672746 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D42A045B1BF4C67900700E6F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4EFE18A1BE906B800672746 /* FontManager.swift */,
+				D4EFE18E1BE907BC00672746 /* FontProtocol.swift */,
+				D4EFE1901BE907E100672746 /* Fonts */,
+				D42A045C1BF4C68D00700E6F /* ButtonManager.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		D4EFE1431BE8E27600672746 = {
 			isa = PBXGroup;
 			children = (
@@ -144,9 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				D4EFE1511BE8E27600672746 /* AppDelegate.swift */,
-				D4EFE18A1BE906B800672746 /* FontManager.swift */,
-				D4EFE18E1BE907BC00672746 /* FontProtocol.swift */,
-				D4EFE1901BE907E100672746 /* Fonts */,
+				D42A045B1BF4C67900700E6F /* Models */,
 				D4EFE1561BE8E27600672746 /* ViewController.swift */,
 				D4EFE1581BE8E27600672746 /* Main.storyboard */,
 				D4EFE15B1BE8E27600672746 /* Images.xcassets */,
@@ -419,6 +430,7 @@
 				D4EFE1921BE9085C00672746 /* DancingMen.swift in Sources */,
 				D4EFE18F1BE907BC00672746 /* FontProtocol.swift in Sources */,
 				D4EFE19C1BE9099100672746 /* Maritime.swift in Sources */,
+				D42A045D1BF4C68D00700E6F /* ButtonManager.swift in Sources */,
 				D42A04581BF231F500700E6F /* KeypadViewController.swift in Sources */,
 				D4EFE1551BE8E27600672746 /* DancingMen.xcdatamodeld in Sources */,
 			);
