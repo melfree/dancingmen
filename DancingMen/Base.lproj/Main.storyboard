@@ -48,16 +48,6 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9r-fb-ctT">
-                                <rect key="frame" x="142" y="285" width="36" height="30"/>
-                                <state key="normal" title="P">
-                                    <color key="titleColor" red="0.0024961902749999999" green="0.26608819119999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.85973985220000004" green="0.86153488830000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didClickTogglePlaintext" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tds-Yf-4Vt"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dancing Men Cipher" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2O4-U8-f5A">
                                 <rect key="frame" x="25" y="28" width="550" height="41"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="31"/>
@@ -105,6 +95,16 @@
                                 </state>
                                 <connections>
                                     <segue destination="955-HD-1Ek" kind="presentation" identifier="fontSegue" modalPresentationStyle="overCurrentContext" id="NhI-20-QwN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9r-fb-ctT">
+                                <rect key="frame" x="142" y="285" width="36" height="30"/>
+                                <state key="normal" title="P">
+                                    <color key="titleColor" red="0.0024961902749999999" green="0.26608819119999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.85973985220000004" green="0.86153488830000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wfu-0R-hrk" kind="presentation" identifier="plaintextSegue" modalPresentationStyle="overCurrentContext" id="Mdv-5k-xGE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -192,12 +192,59 @@
                         <outlet property="inputField" destination="BJq-xE-7BY" id="phF-hv-wcU"/>
                         <outlet property="keypad" destination="d1F-we-Ryu" id="1OC-Lr-u50"/>
                         <outlet property="outputLabel" destination="FAK-B2-8Ql" id="JWX-Ch-4ff"/>
-                        <outlet property="plaintext" destination="F9r-fb-ctT" id="Zch-gP-zPU"/>
+                        <outlet property="plaintext" destination="F9r-fb-ctT" id="bY8-zl-IF2"/>
                         <outlet property="reset" destination="LDR-Lf-cxW" id="bXt-6f-TRc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Plaintext View Controller-->
+        <scene sceneID="JJ4-FM-1RV">
+            <objects>
+                <viewController id="wfu-0R-hrk" customClass="PlaintextViewController" customModule="DancingMen" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FE6-3a-hz6"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tyg-kZ-9el"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dVb-CA-x5O">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkN-fv-VHL">
+                                <rect key="frame" x="275" y="514" width="37" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickBack" destination="wfu-0R-hrk" eventType="touchUpInside" id="3Ol-82-5Tn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zR-YZ-HNZ">
+                                <rect key="frame" x="36" y="28" width="528" height="453"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tyg-kZ-9el" firstAttribute="top" secondItem="RkN-fv-VHL" secondAttribute="bottom" constant="56" id="2vc-VT-YCa"/>
+                            <constraint firstItem="7zR-YZ-HNZ" firstAttribute="top" secondItem="FE6-3a-hz6" secondAttribute="bottom" constant="8" id="Fp7-2z-A1g"/>
+                            <constraint firstItem="7zR-YZ-HNZ" firstAttribute="leading" secondItem="dVb-CA-x5O" secondAttribute="leadingMargin" constant="20" id="Jg6-dP-l7k"/>
+                            <constraint firstAttribute="centerX" secondItem="RkN-fv-VHL" secondAttribute="centerX" constant="7" id="UZT-Ls-QV5"/>
+                            <constraint firstAttribute="centerX" secondItem="7zR-YZ-HNZ" secondAttribute="centerX" id="hK2-nS-R5f"/>
+                            <constraint firstItem="Tyg-kZ-9el" firstAttribute="top" secondItem="7zR-YZ-HNZ" secondAttribute="bottom" constant="119" id="naO-KZ-oeh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="close" destination="RkN-fv-VHL" id="0nd-mf-iiL"/>
+                        <outlet property="outputLabel" destination="7zR-YZ-HNZ" id="nN8-h9-5HE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yCv-M9-x7i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="782" y="989"/>
         </scene>
         <!--Font View Controller-->
         <scene sceneID="3zE-Rm-LRH">
@@ -324,7 +371,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8I-G4-N2l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="621" y="266"/>
+            <point key="canvasLocation" x="903" y="204"/>
         </scene>
     </scenes>
 </document>

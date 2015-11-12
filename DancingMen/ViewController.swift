@@ -10,7 +10,7 @@ import UIKit
 
 import Font_Awesome_Swift
 
-class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate, FontMasterDelegate {
+class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDelegate, KeypadMasterDelegate, FontMasterDelegate {
     
     @IBOutlet weak var inputField: UITextView!
     @IBOutlet weak var outputLabel: UILabel!
@@ -42,7 +42,7 @@ class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate
         // Styles for buttons
         reset.setFAIcon(FAType.FAEraser, iconSize: 35, forState: .Normal)
         keypad.setFAIcon(FAType.FAKeyboardO, iconSize: 35, forState: .Normal)
-        plaintext.setFAIcon(FAType.FACheckSquare, iconSize: 35, forState: .Normal)
+        plaintext.setFAIcon(FAType.FAFileTextO, iconSize: 35, forState: .Normal)
         change.setFAIcon(FAType.FAGear, iconSize: 35, forState: .Normal)
         
         // Make sure font and output text are set
@@ -62,14 +62,6 @@ class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate
         updateTexts()
     }
     
-    @IBAction func didClickTogglePlaintext() {
-        //If Plaintext, show the output and set system font.
-        // If not Plaintext, hide the output and set chosen font.
-        fontManager.togglePlaintext()
-        updateFonts()
-        updateTexts()
-    }
-    
     // # MARK - Text view
     
     func textViewDidChange(textView: UITextView) {
@@ -79,28 +71,15 @@ class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate
     // # MARK - Change font
     
     func updateFonts() {
-        // Update outputLabel and inputField
+        // Update outputLabel
         outputLabel.font = currentFont()
-        if fontManager.isPlaintext {
-            inputField.font = UIFont.systemFontOfSize(30)
-            outputLabel.hidden = false
-        } else {
-            inputField.font = currentFont()
-            outputLabel.hidden = true
-        }
         fontTitle.text = fontManager.currentFont.title + " Cipher"
     }
     
     func updateTexts() {
         var input = inputField.text
         fontManager.inputText = input
-        var output = fontManager.transformedText()
-        outputLabel.text = output
-        if !fontManager.isPlaintext {
-          inputField.text = output
-        } else {
-          inputField.text = input
-        }
+        outputLabel.text = outputText()
     }
     
     // # MARK - Segue
@@ -110,6 +89,10 @@ class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate
             let vc: KeypadViewController = segue.destinationViewController as! KeypadViewController
             vc.delegate = self
         }
+        else if segue.identifier == "plaintextSegue" {
+            let vc: PlaintextViewController = segue.destinationViewController as! PlaintextViewController
+            vc.delegate = self
+        }
         else if segue.identifier == "fontSegue" {
             let vc: FontViewController = segue.destinationViewController as! FontViewController
             vc.delegate = self
@@ -117,6 +100,14 @@ class ViewController: UIViewController, UITextViewDelegate, KeypadMasterDelegate
     }
     
     // # Mark - Keypad delegate
+    
+    func systemFont() -> UIFont {
+         return UIFont.systemFontOfSize(30)
+    }
+    
+    func outputText() -> String {
+        return fontManager.transformedText()
+    }
     
     func currentFontAlphabet() -> String {
         return fontManager.currentAlphabet()

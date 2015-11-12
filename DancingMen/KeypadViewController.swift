@@ -10,23 +10,34 @@ import UIKit
 
 protocol KeypadMasterDelegate {
     func currentFont() -> UIFont
+    func systemFont() -> UIFont
     func addLetter(letter: Character)
     func currentFontAlphabet() -> String
+    func outputText() -> String
 }
 
 class KeypadViewController: UIViewController {
     
     var delegate: KeypadMasterDelegate!
+    var outputLabel: UILabel = UILabel()
     var buttons: [UIButton] = []
     var isPlaintext: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Style outputLabel
+        outputLabel.textColor = UIColor.blackColor()
+        outputLabel.numberOfLines = 0
+        outputLabel.font = delegate.currentFont()
+        outputLabel.adjustsFontSizeToFitWidth = true
+        self.view.addSubview(outputLabel)
 
         // Do any additional setup after loading the view.
         isPlaintext = false
         createButtons()
         createLabel()
+        updateText()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,9 +67,17 @@ class KeypadViewController: UIViewController {
     
     
     // # Mark -Setup functions
+    
+    func updateText() {
+        outputLabel.text = delegate.outputText()
+    }
 
     func createLabel() {
-        
+        let x = CGFloat(5)
+        let y = CGFloat(ButtonManager.containerWidth * Float(buttons.count) / ButtonManager.numOfButtons)
+        let h = self.view.frame.height - (100 + y)
+        let w = self.view.frame.width - 10
+        outputLabel.frame = CGRectMake(x, y, h, w)
     }
     
     func createButtons() {
@@ -73,7 +92,7 @@ class KeypadViewController: UIViewController {
         for char in alphabet {
             let x = CGFloat(ButtonManager.x(forItem: i))
             let y = CGFloat(ButtonManager.y(forItem: i))
-            let button :UIButton = UIButton(frame: CGRectMake(x, y, h, w))
+            let button: UIButton = UIButton(frame: CGRectMake(x, y, h, w))
             
             // Set colors and text
             button.backgroundColor = UIColor.greenColor()
@@ -106,17 +125,19 @@ class KeypadViewController: UIViewController {
     func buttonClicked(sender: UIButton) {
         var input = sender.titleLabel!.text
         delegate.addLetter(Character(input!))
+        updateText()
     }
     
     // # Mark - IB actions
     
     @IBAction func didClickToggle() {
         isPlaintext = !isPlaintext
-        var font = UIFont.systemFontOfSize(30)
+        var font = delegate.systemFont()
         if !(isPlaintext) {
             font = delegate.currentFont()
         }
         buttons.map {$0.titleLabel!.font = font }
+        outputLabel.font = font
     }
     
     @IBAction func didClickBack() {

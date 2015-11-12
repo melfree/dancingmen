@@ -13,20 +13,14 @@ struct FontManager {
     
     var currentFont: FontProtocol
     var inputText: String
-    var isPlaintext: Bool
     
     init() {
         inputText = ""
         currentFont = fonts[0]
-        isPlaintext = true
     }
     
     mutating func selectFont(index: Int) {
         currentFont = fonts[index]
-    }
-    
-    mutating func togglePlaintext() {
-        isPlaintext = !isPlaintext
     }
     
     func currentIndex () -> Int {

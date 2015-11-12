@@ -12,6 +12,7 @@
 		D42A04581BF231F500700E6F /* KeypadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A04571BF231F500700E6F /* KeypadViewController.swift */; };
 		D42A045A1BF2AAFB00700E6F /* FontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A04591BF2AAFB00700E6F /* FontViewController.swift */; };
 		D42A045D1BF4C68D00700E6F /* ButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A045C1BF4C68D00700E6F /* ButtonManager.swift */; };
+		D42A04601BF4DC2E00700E6F /* PlaintextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A045F1BF4DC2E00700E6F /* PlaintextViewController.swift */; };
 		D4EFE1521BE8E27600672746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1511BE8E27600672746 /* AppDelegate.swift */; };
 		D4EFE1551BE8E27600672746 /* DancingMen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1531BE8E27600672746 /* DancingMen.xcdatamodeld */; };
 		D4EFE1571BE8E27600672746 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1561BE8E27600672746 /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 		D42A04571BF231F500700E6F /* KeypadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeypadViewController.swift; sourceTree = "<group>"; tabWidth = 5; };
 		D42A04591BF2AAFB00700E6F /* FontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontViewController.swift; sourceTree = "<group>"; };
 		D42A045C1BF4C68D00700E6F /* ButtonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonManager.swift; sourceTree = "<group>"; };
+		D42A045F1BF4DC2E00700E6F /* PlaintextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaintextViewController.swift; sourceTree = "<group>"; };
 		D4EFE14C1BE8E27600672746 /* DancingMen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DancingMen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EFE1501BE8E27600672746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4EFE1511BE8E27600672746 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,17 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		D42A045E1BF4DC0500700E6F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4EFE1561BE8E27600672746 /* ViewController.swift */,
+				D42A04571BF231F500700E6F /* KeypadViewController.swift */,
+				D42A04591BF2AAFB00700E6F /* FontViewController.swift */,
+				D42A045F1BF4DC2E00700E6F /* PlaintextViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		D4EFE1431BE8E27600672746 = {
 			isa = PBXGroup;
 			children = (
@@ -158,14 +171,12 @@
 			children = (
 				D4EFE1511BE8E27600672746 /* AppDelegate.swift */,
 				D42A045B1BF4C67900700E6F /* Models */,
-				D4EFE1561BE8E27600672746 /* ViewController.swift */,
+				D42A045E1BF4DC0500700E6F /* Controllers */,
 				D4EFE1581BE8E27600672746 /* Main.storyboard */,
 				D4EFE15B1BE8E27600672746 /* Images.xcassets */,
 				D4EFE15D1BE8E27600672746 /* LaunchScreen.xib */,
 				D4EFE1531BE8E27600672746 /* DancingMen.xcdatamodeld */,
 				D4EFE14F1BE8E27600672746 /* Supporting Files */,
-				D42A04571BF231F500700E6F /* KeypadViewController.swift */,
-				D42A04591BF2AAFB00700E6F /* FontViewController.swift */,
 			);
 			path = DancingMen;
 			sourceTree = "<group>";
@@ -421,6 +432,7 @@
 			files = (
 				D4EFE18B1BE906B800672746 /* FontManager.swift in Sources */,
 				D42A045A1BF2AAFB00700E6F /* FontViewController.swift in Sources */,
+				D42A04601BF4DC2E00700E6F /* PlaintextViewController.swift in Sources */,
 				D4EFE1981BE9091800672746 /* Braille.swift in Sources */,
 				D4EFE1961BE908EC00672746 /* Masonic.swift in Sources */,
 				D4EFE1571BE8E27600672746 /* ViewController.swift in Sources */,
