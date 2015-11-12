@@ -11,8 +11,17 @@
 		284031F9267C5F56F9FEEBBD /* Pods_DancingMenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22711D6373DC066243E92070 /* Pods_DancingMenTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D42A04581BF231F500700E6F /* KeypadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A04571BF231F500700E6F /* KeypadViewController.swift */; };
 		D42A045A1BF2AAFB00700E6F /* FontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A04591BF2AAFB00700E6F /* FontViewController.swift */; };
-		D42A045D1BF4C68D00700E6F /* ButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A045C1BF4C68D00700E6F /* ButtonManager.swift */; };
+		D42A045D1BF4C68D00700E6F /* KeypadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A045C1BF4C68D00700E6F /* KeypadManager.swift */; };
 		D42A04601BF4DC2E00700E6F /* PlaintextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A045F1BF4DC2E00700E6F /* PlaintextViewController.swift */; };
+		D42A04631BF50CC100700E6F /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE18A1BE906B800672746 /* FontManager.swift */; };
+		D42A04641BF50CED00700E6F /* FontProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE18E1BE907BC00672746 /* FontProtocol.swift */; };
+		D42A04651BF50CEF00700E6F /* KeypadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A045C1BF4C68D00700E6F /* KeypadManager.swift */; };
+		D42A04661BF50CF500700E6F /* Maritime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE19B1BE9099100672746 /* Maritime.swift */; };
+		D42A04671BF50CF500700E6F /* Morse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1931BE908B800672746 /* Morse.swift */; };
+		D42A04681BF50CF500700E6F /* Masonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1951BE908EC00672746 /* Masonic.swift */; };
+		D42A04691BF50CF500700E6F /* Braille.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1971BE9091800672746 /* Braille.swift */; };
+		D42A046A1BF50CF500700E6F /* Semaphore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE18C1BE9079100672746 /* Semaphore.swift */; };
+		D42A046B1BF50CF500700E6F /* DancingMen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1911BE9085C00672746 /* DancingMen.swift */; };
 		D4EFE1521BE8E27600672746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1511BE8E27600672746 /* AppDelegate.swift */; };
 		D4EFE1551BE8E27600672746 /* DancingMen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1531BE8E27600672746 /* DancingMen.xcdatamodeld */; };
 		D4EFE1571BE8E27600672746 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EFE1561BE8E27600672746 /* ViewController.swift */; };
@@ -53,7 +62,7 @@
 		B4BB54F20406056E544D00E4 /* Pods-DancingMenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DancingMenTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DancingMenTests/Pods-DancingMenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D42A04571BF231F500700E6F /* KeypadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeypadViewController.swift; sourceTree = "<group>"; tabWidth = 5; };
 		D42A04591BF2AAFB00700E6F /* FontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontViewController.swift; sourceTree = "<group>"; };
-		D42A045C1BF4C68D00700E6F /* ButtonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonManager.swift; sourceTree = "<group>"; };
+		D42A045C1BF4C68D00700E6F /* KeypadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeypadManager.swift; sourceTree = "<group>"; };
 		D42A045F1BF4DC2E00700E6F /* PlaintextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaintextViewController.swift; sourceTree = "<group>"; };
 		D4EFE14C1BE8E27600672746 /* DancingMen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DancingMen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EFE1501BE8E27600672746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,7 +139,7 @@
 				D4EFE18A1BE906B800672746 /* FontManager.swift */,
 				D4EFE18E1BE907BC00672746 /* FontProtocol.swift */,
 				D4EFE1901BE907E100672746 /* Fonts */,
-				D42A045C1BF4C68D00700E6F /* ButtonManager.swift */,
+				D42A045C1BF4C68D00700E6F /* KeypadManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -442,7 +451,7 @@
 				D4EFE1921BE9085C00672746 /* DancingMen.swift in Sources */,
 				D4EFE18F1BE907BC00672746 /* FontProtocol.swift in Sources */,
 				D4EFE19C1BE9099100672746 /* Maritime.swift in Sources */,
-				D42A045D1BF4C68D00700E6F /* ButtonManager.swift in Sources */,
+				D42A045D1BF4C68D00700E6F /* KeypadManager.swift in Sources */,
 				D42A04581BF231F500700E6F /* KeypadViewController.swift in Sources */,
 				D4EFE1551BE8E27600672746 /* DancingMen.xcdatamodeld in Sources */,
 			);
@@ -452,7 +461,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42A04671BF50CF500700E6F /* Morse.swift in Sources */,
+				D42A046B1BF50CF500700E6F /* DancingMen.swift in Sources */,
+				D42A046A1BF50CF500700E6F /* Semaphore.swift in Sources */,
+				D42A04631BF50CC100700E6F /* FontManager.swift in Sources */,
+				D42A04641BF50CED00700E6F /* FontProtocol.swift in Sources */,
+				D42A04691BF50CF500700E6F /* Braille.swift in Sources */,
 				D4EFE16B1BE8E27600672746 /* DancingMenTests.swift in Sources */,
+				D42A04681BF50CF500700E6F /* Masonic.swift in Sources */,
+				D42A04661BF50CF500700E6F /* Maritime.swift in Sources */,
+				D42A04651BF50CEF00700E6F /* KeypadManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

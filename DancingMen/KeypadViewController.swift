@@ -23,6 +23,8 @@ class KeypadViewController: UIViewController {
     var buttons: [UIButton] = []
     var isPlaintext: Bool = false
     
+    var keypadManager = KeypadManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,13 +56,13 @@ class KeypadViewController: UIViewController {
     }
     
     func updateButtons(){
-        ButtonManager.setNumOfButtonsInRow(frameWidth: Float(self.view.frame.width))
-        let h = CGFloat(ButtonManager.height)
-        let w = CGFloat(ButtonManager.width)
+        keypadManager.setNumOfButtonsInRow(frameWidth: Float(self.view.frame.width))
+        let h = CGFloat(keypadManager.height)
+        let w = CGFloat(keypadManager.width)
         
         for i in 0..<buttons.count {
-            let x = CGFloat(ButtonManager.x(forItem: i))
-            let y = CGFloat(ButtonManager.y(forItem: i))
+            let x = CGFloat(keypadManager.x(forItem: i))
+            let y = CGFloat(keypadManager.y(forItem: i))
             buttons[i].frame = CGRectMake(x, y, h, w)
         }
     }
@@ -74,7 +76,7 @@ class KeypadViewController: UIViewController {
 
     func createLabel() {
         let x = CGFloat(5)
-        let y = CGFloat(ButtonManager.containerWidth * Float(buttons.count) / ButtonManager.numOfButtons)
+        let y = CGFloat(keypadManager.containerWidth * Float(buttons.count) / keypadManager.numOfButtons)
         let h = self.view.frame.height - (100 + y)
         let w = self.view.frame.width - 10
         outputLabel.frame = CGRectMake(x, y, h, w)
@@ -85,13 +87,13 @@ class KeypadViewController: UIViewController {
         let alphabet = String(delegate.currentFontAlphabet())
         var i = 0
         
-        ButtonManager.setNumOfButtonsInRow(frameWidth: Float(self.view.frame.width))
-        let h = CGFloat(ButtonManager.height)
-        let w = CGFloat(ButtonManager.width)
+        keypadManager.setNumOfButtonsInRow(frameWidth: Float(self.view.frame.width))
+        let h = CGFloat(keypadManager.height)
+        let w = CGFloat(keypadManager.width)
         
         for char in alphabet {
-            let x = CGFloat(ButtonManager.x(forItem: i))
-            let y = CGFloat(ButtonManager.y(forItem: i))
+            let x = CGFloat(keypadManager.x(forItem: i))
+            let y = CGFloat(keypadManager.y(forItem: i))
             let button: UIButton = UIButton(frame: CGRectMake(x, y, h, w))
             
             // Set colors and text
