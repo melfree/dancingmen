@@ -11,6 +11,7 @@ import UIKit
 import Font_Awesome_Swift
 
 class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDelegate, KeypadMasterDelegate, FontMasterDelegate {
+    @IBOutlet weak var bottomLayout: NSLayoutConstraint!
     
     @IBOutlet weak var inputField: UITextView!
     @IBOutlet weak var outputLabel: UILabel!
@@ -26,6 +27,10 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Set keyboard listeners
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
         
         // Set styles for input field
         inputField.layer.cornerRadius = 5.0
@@ -53,6 +58,25 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // # MARK - Keyboard events
+    
+    func keyboardWillShow(sender: NSNotification) {
+        updateHeights(sender)
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        updateHeights(sender)
+    }
+    
+    func updateHeights(sender: NSNotification) {
+        if let userInfo = sender.userInfo {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+                bottomLayout.constant = keyboardHeight
+                UIView.animateWithDuration(0.25, animations: { () -> Void in self.view.layoutIfNeeded() })
+            }
+        }
     }
     
     // # MARK - IB actions
