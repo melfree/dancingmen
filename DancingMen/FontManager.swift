@@ -9,8 +9,7 @@
 import Foundation
 
 struct FontManager {
-    let fonts: [FontProtocol] = [Semaphore(), DancingMen(), Morse(), Maritime(), Masonic(), Braille()]
-    
+    let fonts: [FontProtocol] = [Semaphore(), DancingMen(),  Masonic(), Morse(), Maritime(), Braille()]
     var currentFont: FontProtocol
     var inputText: String
     

@@ -9,7 +9,9 @@
 import Foundation
 
 protocol FontProtocol {
+    // Name is used for the file name of the font, and for equality checking of fonts
     var name: String { get }
+    // Title is displayed to user
     var title: String { get }
     var size: Float { get }
     var flavorText: String { get }

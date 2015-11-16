@@ -76,7 +76,7 @@ class KeypadViewController: UIViewController {
 
     func createLabel() {
         let x = CGFloat(5)
-        let y = CGFloat(keypadManager.containerWidth * Float(buttons.count) / keypadManager.numOfButtons)
+        let y = CGFloat(keypadManager.containerHeight * Float(buttons.count) / Float(keypadManager.numOfButtons))
         let h = self.view.frame.height - (100 + y)
         let w = self.view.frame.width - 10
         outputLabel.frame = CGRectMake(x, y, h, w)
