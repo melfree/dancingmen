@@ -148,7 +148,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.87608967687225847" green="1" blue="0.78630128379092834" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.82272136772600646" green="1" blue="0.7139973884582671" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="PXM-zW-ze5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bbq-9k-9fS"/>
