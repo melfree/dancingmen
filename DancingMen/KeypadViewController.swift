@@ -19,7 +19,9 @@ protocol KeypadMasterDelegate {
 class KeypadViewController: UIViewController {
     
     var delegate: KeypadMasterDelegate!
-    var outputLabel: UILabel = UILabel()
+    @IBOutlet weak var outputLabel: UILabel!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    
     var buttons: [UIButton] = []
     var isPlaintext: Bool = false
     
@@ -33,12 +35,11 @@ class KeypadViewController: UIViewController {
         outputLabel.numberOfLines = 0
         outputLabel.font = delegate.currentFont()
         outputLabel.adjustsFontSizeToFitWidth = true
-        self.view.addSubview(outputLabel)
-
+        
         // Do any additional setup after loading the view.
         isPlaintext = false
         createButtons()
-        createLabel()
+        positionLabel()
         updateText()
     }
 
@@ -74,12 +75,8 @@ class KeypadViewController: UIViewController {
         outputLabel.text = delegate.outputText()
     }
 
-    func createLabel() {
-        let x = CGFloat(5)
-        let y = CGFloat(keypadManager.containerHeight * Float(buttons.count) / Float(keypadManager.numOfButtons))
-        let h = self.view.frame.height - (100 + y)
-        let w = self.view.frame.width - 10
-        outputLabel.frame = CGRectMake(x, y, h, w)
+    func positionLabel() {
+        topConstraint.constant = CGFloat(keypadManager.y(forItem: 0) + keypadManager.height * (Float(buttons.count / keypadManager.numOfButtons) + 1))
     }
     
     func createButtons() {

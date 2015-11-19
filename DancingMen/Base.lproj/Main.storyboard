@@ -320,7 +320,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOF-hu-hYH">
-                                <rect key="frame" x="351" y="523" width="46" height="30"/>
+                                <rect key="frame" x="338" y="523" width="46" height="30"/>
                                 <state key="normal" title="Toggle">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -328,18 +328,33 @@
                                     <action selector="didClickToggle" destination="Fqx-Oe-WMm" eventType="touchUpInside" id="miV-6y-H4s"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6Z-9U-Of1">
+                                <rect key="frame" x="32" y="220" width="536" height="279"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="k6Z-9U-Of1" firstAttribute="top" secondItem="HiK-UB-l9c" secondAttribute="bottom" constant="200" id="2mg-uw-lje"/>
+                            <constraint firstItem="k6Z-9U-Of1" firstAttribute="leading" secondItem="3Vl-w4-gx7" secondAttribute="leadingMargin" constant="16" id="6CM-og-uOG"/>
                             <constraint firstItem="qOF-hu-hYH" firstAttribute="firstBaseline" secondItem="5b9-2Z-h8N" secondAttribute="baseline" id="Bhr-je-JlT"/>
+                            <constraint firstItem="5b9-2Z-h8N" firstAttribute="top" secondItem="k6Z-9U-Of1" secondAttribute="bottom" constant="20" id="Zqt-bX-PbS"/>
                             <constraint firstItem="Loo-KI-nnU" firstAttribute="top" secondItem="qOF-hu-hYH" secondAttribute="bottom" constant="47" id="aIk-yR-J06"/>
-                            <constraint firstItem="qOF-hu-hYH" firstAttribute="leading" secondItem="5b9-2Z-h8N" secondAttribute="trailing" constant="68" id="byW-i1-z54"/>
+                            <constraint firstItem="qOF-hu-hYH" firstAttribute="leading" secondItem="5b9-2Z-h8N" secondAttribute="trailing" constant="55" id="byW-i1-z54"/>
                             <constraint firstItem="5b9-2Z-h8N" firstAttribute="bottom" secondItem="qOF-hu-hYH" secondAttribute="bottom" constant="4" id="cGp-So-oYx"/>
                             <constraint firstAttribute="centerX" secondItem="5b9-2Z-h8N" secondAttribute="centerX" constant="45.5" id="pit-X2-3l4"/>
                             <constraint firstItem="qOF-hu-hYH" firstAttribute="baseline" secondItem="5b9-2Z-h8N" secondAttribute="firstBaseline" id="ryQ-QC-0Rj"/>
                             <constraint firstItem="Loo-KI-nnU" firstAttribute="top" secondItem="5b9-2Z-h8N" secondAttribute="bottom" constant="43" id="spl-hK-OS6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k6Z-9U-Of1" secondAttribute="trailing" constant="16" id="tvV-yY-ke9"/>
+                            <constraint firstItem="Loo-KI-nnU" firstAttribute="top" secondItem="k6Z-9U-Of1" secondAttribute="bottom" constant="101" id="ucS-XM-0fe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="outputLabel" destination="k6Z-9U-Of1" id="9zC-yE-YTR"/>
+                        <outlet property="topConstraint" destination="2mg-uw-lje" id="FZA-Im-FKI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8I-G4-N2l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

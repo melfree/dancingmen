@@ -32,6 +32,10 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
         
+        // Set tap gesture listener for dismissing keyboard
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        self.view.addGestureRecognizer(tap)
+        
         // Set styles for input field
         inputField.layer.cornerRadius = 5.0
         inputField.layer.borderColor = UIColor.grayColor().CGColor
@@ -60,14 +64,23 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
         // Dispose of any resources that can be recreated.
     }
     
+    // # MARK - Gesture events
+    
+    func dismissKeyboard() {
+        inputField.resignFirstResponder()
+    }
+    
     // # MARK - Keyboard events
     
+    // In info.plist, landscape is disabled for iphone,
+    // because the keyboard is too big in landscape mode
+    // for the app to be usable.
     func keyboardWillShow(sender: NSNotification) {
         updateHeights(sender)
     }
     
     func keyboardWillHide(sender: NSNotification) {
-        updateHeights(sender)
+        bottomLayout.constant = 0
     }
     
     func updateHeights(sender: NSNotification) {
