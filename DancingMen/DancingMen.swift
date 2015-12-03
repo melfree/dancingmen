@@ -11,9 +11,9 @@ import Foundation
 struct DancingMen: FontProtocol {
     let name = "GL-DancingMen"
     let title = "Dancing Men"
-    let size: Float = 50
+    let size: Float = 60
     let flavorText = "In one short story of Sherlock Holmes, 'The Adventure of the Dancing Men,' a man tells Holmes that his wife is recieving strange notes with dancing men on them. The seemingly childish drawings turns out to be a secret code developed and used by Chicago gangsters. Traditionally, spaces are not used; men with a flag denote the last letter of a word."
-    let alphabet = "abcdefghijklmnopqrstuvwxyz"
+    let alphabet = "abcdefghijklmnopqrstuvwxyz0123456789"
     
     func transform(textArray: [Character]) -> [Character] {
         // DancingMen requires that the last letter of every word is capitalized.

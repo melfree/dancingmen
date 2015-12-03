@@ -129,7 +129,6 @@ class DancingMenSpec: QuickSpec {
                 it("has proper values set for the dimensions of the keypad buttons") {
                     expect(keypadManager.width).to(beCloseTo(55, within: delta))
                     expect(keypadManager.height).to(beCloseTo(55, within: delta))
-                    expect(keypadManager.margin).to(beCloseTo(5, within: delta))
                     expect(keypadManager.topPadding).to(beCloseTo(25, within: delta))
                     expect(keypadManager.containerWidth).to(beCloseTo(60, within: delta))
                     expect(keypadManager.containerHeight).to(beCloseTo(60, within: delta))
@@ -139,19 +138,6 @@ class DancingMenSpec: QuickSpec {
                 it("has function to change the number of buttons that should be in a row, given the device's screen width"){
                     keypadManager.setNumOfButtonsInRow(frameWidth: 500)
                     expect(keypadManager.numOfButtons).to(beCloseTo(numButtonsInRow, within: delta))
-                }
-                
-                it("has function to determine x position value of first button"){
-                    let i = 0
-                    let expected = keypadManager.margin + (keypadManager.containerWidth * Float(i % keypadManager.numOfButtons) )
-                    expect(keypadManager.x(forItem: 0)).to(beCloseTo(expected, within: delta))
-                    
-                }
-                
-                it("has function to determine y position value of first button"){
-                    let i = 0
-                    let expected = keypadManager.margin + keypadManager.topPadding + (keypadManager.containerHeight * Float(i / Int((keypadManager.numOfButtons))))
-                    expect(keypadManager.y(forItem: 0)).to(beCloseTo(expected, within: delta))
                 }
             
                 it("has different x positions of two nearby buttons"){

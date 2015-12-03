@@ -11,7 +11,7 @@ import Foundation
 struct Semaphore: FontProtocol {
     let name = "Semaphore"
     let title = "Semaphore"
-    let size: Float = 40
+    let size: Float = 50
     let flavorText = "In Flag Semaphore, information is encoded by the position of the visual signal. It is read when the signal (flag) is in a fixed position. Semaphores were adopted and widely used in the maritime world in the 19th century. It is still acceptable for emergency communication. All Semaphore letters are lowercase."
     let alphabet = "abcdefghijklmnopqrstuvwxyz"
     

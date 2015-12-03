@@ -324,7 +324,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zR-YZ-HNZ">
-                                <rect key="frame" x="36" y="28" width="528" height="453"/>
+                                <rect key="frame" x="16" y="28" width="568" height="478"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -334,10 +334,10 @@
                         <constraints>
                             <constraint firstItem="Tyg-kZ-9el" firstAttribute="top" secondItem="RkN-fv-VHL" secondAttribute="bottom" constant="56" id="2vc-VT-YCa"/>
                             <constraint firstItem="7zR-YZ-HNZ" firstAttribute="top" secondItem="FE6-3a-hz6" secondAttribute="bottom" constant="8" id="Fp7-2z-A1g"/>
-                            <constraint firstItem="7zR-YZ-HNZ" firstAttribute="leading" secondItem="dVb-CA-x5O" secondAttribute="leadingMargin" constant="20" id="Jg6-dP-l7k"/>
+                            <constraint firstItem="7zR-YZ-HNZ" firstAttribute="leading" secondItem="dVb-CA-x5O" secondAttribute="leadingMargin" id="Jg6-dP-l7k"/>
                             <constraint firstAttribute="centerX" secondItem="RkN-fv-VHL" secondAttribute="centerX" constant="7" id="UZT-Ls-QV5"/>
                             <constraint firstAttribute="centerX" secondItem="7zR-YZ-HNZ" secondAttribute="centerX" id="hK2-nS-R5f"/>
-                            <constraint firstItem="Tyg-kZ-9el" firstAttribute="top" secondItem="7zR-YZ-HNZ" secondAttribute="bottom" constant="119" id="naO-KZ-oeh"/>
+                            <constraint firstItem="Tyg-kZ-9el" firstAttribute="top" secondItem="7zR-YZ-HNZ" secondAttribute="bottom" constant="94" id="naO-KZ-oeh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -459,8 +459,8 @@
                                     <action selector="didClickToggle" destination="Fqx-Oe-WMm" eventType="touchUpInside" id="miV-6y-H4s"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6Z-9U-Of1">
-                                <rect key="frame" x="32" y="220" width="536" height="279"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6Z-9U-Of1">
+                                <rect key="frame" x="16" y="220" width="568" height="279"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -469,7 +469,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="k6Z-9U-Of1" firstAttribute="top" secondItem="HiK-UB-l9c" secondAttribute="bottom" constant="200" id="2mg-uw-lje"/>
-                            <constraint firstItem="k6Z-9U-Of1" firstAttribute="leading" secondItem="3Vl-w4-gx7" secondAttribute="leadingMargin" constant="16" id="6CM-og-uOG"/>
+                            <constraint firstItem="k6Z-9U-Of1" firstAttribute="leading" secondItem="3Vl-w4-gx7" secondAttribute="leadingMargin" id="6CM-og-uOG"/>
                             <constraint firstItem="qOF-hu-hYH" firstAttribute="firstBaseline" secondItem="5b9-2Z-h8N" secondAttribute="baseline" id="Bhr-je-JlT"/>
                             <constraint firstItem="5b9-2Z-h8N" firstAttribute="top" secondItem="k6Z-9U-Of1" secondAttribute="bottom" constant="20" id="Zqt-bX-PbS"/>
                             <constraint firstItem="Loo-KI-nnU" firstAttribute="top" secondItem="qOF-hu-hYH" secondAttribute="bottom" constant="47" id="aIk-yR-J06"/>
@@ -478,7 +478,7 @@
                             <constraint firstAttribute="centerX" secondItem="5b9-2Z-h8N" secondAttribute="centerX" constant="45.5" id="pit-X2-3l4"/>
                             <constraint firstItem="qOF-hu-hYH" firstAttribute="baseline" secondItem="5b9-2Z-h8N" secondAttribute="firstBaseline" id="ryQ-QC-0Rj"/>
                             <constraint firstItem="Loo-KI-nnU" firstAttribute="top" secondItem="5b9-2Z-h8N" secondAttribute="bottom" constant="43" id="spl-hK-OS6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="k6Z-9U-Of1" secondAttribute="trailing" constant="16" id="tvV-yY-ke9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k6Z-9U-Of1" secondAttribute="trailing" id="tvV-yY-ke9"/>
                             <constraint firstItem="Loo-KI-nnU" firstAttribute="top" secondItem="k6Z-9U-Of1" secondAttribute="bottom" constant="101" id="ucS-XM-0fe"/>
                         </constraints>
                     </view>

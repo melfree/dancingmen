@@ -145,7 +145,7 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     // # Mark - Keypad delegate
     
     func systemFont() -> UIFont {
-         return UIFont.systemFontOfSize(30)
+         return UIFont.systemFontOfSize(40)
     }
     
     func outputText() -> String {
@@ -154,6 +154,15 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     
     func currentFontAlphabet() -> String {
         return fontManager.currentAlphabet()
+    }
+    
+    func removeLetter() {
+        let input = inputField.text
+        let sizeOfInput = count(input)
+        if sizeOfInput > 0 {
+          inputField.text = dropLast(input)
+          updateTexts()
+        }
     }
     
     func addLetter(letter: Character) {

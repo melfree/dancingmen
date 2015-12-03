@@ -10,26 +10,37 @@ import Foundation
 
 struct KeypadManager {
     // Define unchanging values used for dimensions of keypad buttons.
-    let width: Float = 55.0
-    let height: Float = 55.0
-    let margin: Float = 5.0
+    var width: Float = 65.0
+    var height: Float = 65.0
     let topPadding: Float = 25.0
-    let containerWidth: Float = 60.0
-    let containerHeight: Float = 60.0
+    var containerWidth: Float = 70.0
+    var containerHeight: Float = 70.0
+    
+    let minimizer: Float = 0.8
     
     // We will need to keep track of the number of buttons that can fit in a row, 
     // given the current window frame's width.
     var numOfButtons: Int = 0
+    var centeringPadding: Float = 0
     
     func x(forItem i: Int) -> Float {
-        return margin + (containerWidth * Float(i % numOfButtons) )
+        return centeringPadding + (containerWidth * Float(i % numOfButtons) )
     }
     
     func y(forItem i: Int) -> Float {
-        return margin + topPadding + (containerHeight * Float(i / numOfButtons) )
+        return containerWidth - width + topPadding + (containerHeight * Float(i / numOfButtons) )
+    }
+    
+    // For larger alphabets needing smaller keyboards
+    mutating func minimize() {
+        containerWidth = containerWidth * minimizer
+        containerHeight = containerHeight * minimizer
+        width = width * minimizer
+        height = height * minimizer
     }
     
     mutating func setNumOfButtonsInRow(#frameWidth: Float) {
+        centeringPadding = (frameWidth % containerWidth) / 2.0
         numOfButtons = Int(frameWidth/containerWidth)
     }
 }

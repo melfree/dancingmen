@@ -14,6 +14,7 @@ protocol KeypadMasterDelegate {
     func addLetter(letter: Character)
     func currentFontAlphabet() -> String
     func outputText() -> String
+    func removeLetter()
 }
 
 class KeypadViewController: UIViewController {
@@ -76,14 +77,16 @@ class KeypadViewController: UIViewController {
     }
 
     func positionLabel() {
-        topConstraint.constant = CGFloat(keypadManager.y(forItem: 0) + keypadManager.height * (Float(buttons.count / keypadManager.numOfButtons) + 1))
+        topConstraint.constant = CGFloat(keypadManager.y(forItem: 0) + keypadManager.height * (Float(buttons.count / keypadManager.numOfButtons) + 1) + 5)
     }
     
     func createButtons() {
         let font = delegate.currentFont()
-        let alphabet = String(delegate.currentFontAlphabet())
+        let alphabet = String(delegate.currentFontAlphabet()) + "  "
+        var lengthOfAlphabet = count(delegate.currentFontAlphabet()) + 2
         var i = 0
         
+        if lengthOfAlphabet > 30 { keypadManager.minimize() }
         keypadManager.setNumOfButtonsInRow(frameWidth: Float(self.view.frame.width))
         let h = CGFloat(keypadManager.height)
         let w = CGFloat(keypadManager.width)
@@ -92,29 +95,32 @@ class KeypadViewController: UIViewController {
             let x = CGFloat(keypadManager.x(forItem: i))
             let y = CGFloat(keypadManager.y(forItem: i))
             let button: UIButton = UIButton(frame: CGRectMake(x, y, h, w))
-            
-            // Set colors and text
-            button.backgroundColor = UIColor.greenColor()
             button.setTitle(String(char), forState: UIControlState.Normal)
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-            
-            // Circle edges
+            // Circle edges, highlight when clicked
             button.layer.cornerRadius = button.bounds.size.width / 2.0
-            
-            // Highlight when clicked
             button.showsTouchWhenHighlighted = true
-            
-            // Set font for the title, and force size to decrease if the font is too large
-            button.titleLabel!.font = font
             button.titleLabel!.adjustsFontSizeToFitWidth = true
             
-            // Add buttonClicked event
-            button.addTarget(self, action: "buttonClicked:", forControlEvents: .TouchUpInside)
-            
-            // Add to array so we can toggle the font later
-            buttons.append(button)
-            
-            // Add button to view
+            // Set colors and text
+            if (lengthOfAlphabet > i + 1) {
+                if (lengthOfAlphabet > i + 2) {
+                    button.backgroundColor = UIColor.greenColor()
+                } else {
+                    // space button
+                    button.backgroundColor = UIColor(red:0.4,green:0.8,blue:0.4,alpha: 1.0)
+                }
+                button.titleLabel!.font = font
+                
+                // Add buttonClicked event
+                button.addTarget(self, action: "buttonClicked:", forControlEvents: .TouchUpInside)
+                
+                // Add to array so we can toggle the font later
+                buttons.append(button)
+            } else {
+                button.backgroundColor = UIColor(red:0.8,green:0.4,blue:0.4,alpha: 1.0)
+                button.addTarget(self, action: "backspaceClicked:", forControlEvents: .TouchUpInside)
+            }
             self.view.addSubview(button)
             
             i++
@@ -124,6 +130,11 @@ class KeypadViewController: UIViewController {
     func buttonClicked(sender: UIButton) {
         var input = sender.titleLabel!.text
         delegate.addLetter(Character(input!))
+        updateText()
+    }
+    
+    func backspaceClicked(sender: UIButton) {
+        delegate.removeLetter()
         updateText()
     }
     

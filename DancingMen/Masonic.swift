@@ -11,7 +11,7 @@ import Foundation
 struct Masonic: FontProtocol {
     let name = "Masonic Cipher"
     let title = "Masonic"
-    let size: Float = 30
+    let size: Float = 40
     let flavorText = "The Masonic cipher (alternatively, the pigpen cipher or Freemason's cipher) is a geometric simple substitution cipher, which exchanges letters for symbols which are fragments of a grid. Records of this system have been found which go back to at least the 18th century. In the Masonic cipher, number digits are replaced with letters."
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     
