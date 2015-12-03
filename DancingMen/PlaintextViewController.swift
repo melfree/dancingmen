@@ -38,10 +38,6 @@ class PlaintextViewController: UIViewController {
     // # MARK - IB actions
     
     @IBAction func didClickBack() {
-        goBack()
-    }
-    
-    func goBack() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 

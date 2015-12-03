@@ -10,7 +10,7 @@ import UIKit
 
 import Font_Awesome_Swift
 
-class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDelegate, KeypadMasterDelegate, FontMasterDelegate {
+class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDelegate, KeypadMasterDelegate, FontMasterDelegate, GameMasterDelegate {
     @IBOutlet weak var bottomLayout: NSLayoutConstraint!
     
     @IBOutlet weak var inputField: UITextView!
@@ -21,6 +21,7 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     @IBOutlet weak var plaintext: UIButton!
     @IBOutlet weak var change: UIButton!
     @IBOutlet weak var keypad: UIButton!
+    @IBOutlet weak var game: UIButton!
         
     var fontManager = FontManager()
 
@@ -53,6 +54,7 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
         keypad.setFAIcon(FAType.FAKeyboardO, iconSize: 35, forState: .Normal)
         plaintext.setFAIcon(FAType.FAFileTextO, iconSize: 35, forState: .Normal)
         change.setFAIcon(FAType.FAGear, iconSize: 35, forState: .Normal)
+        game.setFAIcon(FAType.FAGamepad, iconSize: 35, forState: .Normal)
         
         // Make sure font and output text are set
         updateTexts()
@@ -134,6 +136,10 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
             let vc: FontViewController = segue.destinationViewController as! FontViewController
             vc.delegate = self
         }
+        else if segue.identifier == "gameSegue" {
+            let vc: GameViewController = segue.destinationViewController as! GameViewController
+            vc.delegate = self
+        }
     }
     
     // # Mark - Keypad delegate
@@ -159,8 +165,20 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
         var currentFont = fontManager.currentFont
         var name = currentFont.name
         var size: CGFloat = CGFloat(currentFont.size)
-        
         return UIFont(name: name, size: size)!
+    }
+    
+    // # Mark - Game delegate
+    
+    func currentFontLarge() -> UIFont {
+        var currentFont = fontManager.currentFont
+        var name = currentFont.name
+        var size: CGFloat = CGFloat(currentFont.size * 1.5)
+        return UIFont(name: name, size: size)!
+    }
+    
+    func systemFontLarge() -> UIFont {
+        return UIFont.systemFontOfSize(45)
     }
     
     // # Mark - Font delegate
