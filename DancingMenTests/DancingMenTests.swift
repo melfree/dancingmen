@@ -33,7 +33,7 @@ class DancingMenSpec: QuickSpec {
             var fontManager = FontManager()
             let test_string = "TEST string 1230"
             let test_semaphore = "test string 1230"
-            let test_dancing_men = "tesTstrinG1230"
+            let test_dancing_men = "tesTstrinGabcJ"
             let test_masonic = "TEST string ABCJ"
             
             describe("fonts") {
@@ -70,30 +70,30 @@ class DancingMenSpec: QuickSpec {
             }
             describe("currentFont") {
                 it("starts with the first font") {
-                    expect(fontManager.fonts[0].name).to(equal(fontManager.currentFont.name))
+                    expect(fontManager.fonts[0].name).to(equal(fontManager.currentFont().name))
                 }
             }
             describe("selectFont(int)") {
                 it("changes currentFont when a different font is selected") {
                     fontManager.selectFont(1)
-                    expect(fontManager.fonts[1].name).to(equal(fontManager.currentFont.name))
+                    expect(fontManager.fonts[1].name).to(equal(fontManager.currentFont().name))
                     fontManager.selectFont(0)
-                    expect(fontManager.fonts[0].name).to(equal(fontManager.currentFont.name))
+                    expect(fontManager.fonts[0].name).to(equal(fontManager.currentFont().name))
                 }
             }
             describe("currentIndex()") {
                 it("gets the current index value of the font") {
-                    expect(fontManager.currentIndex()).to(equal(0))
+                    expect(fontManager.currentFontIndex).to(equal(0))
                     fontManager.selectFont(1)
-                    expect(fontManager.currentIndex()).to(equal(1))
+                    expect(fontManager.currentFontIndex).to(equal(1))
                     fontManager.selectFont(0)
                 }
             }
             describe("currentAlphabet") {
                 it("gets the current alphabet of keypad letters for the given font") {
-                    expect(fontManager.currentAlphabet()).to(equal(fontManager.currentFont.alphabet))
+                    expect(fontManager.currentAlphabet()).to(equal(fontManager.currentFont().alphabet))
                     fontManager.selectFont(1)
-                    expect(fontManager.currentAlphabet()).to(equal(fontManager.currentFont.alphabet))
+                    expect(fontManager.currentAlphabet()).to(equal(fontManager.currentFont().alphabet))
                     fontManager.selectFont(0)
                 }
             }
@@ -101,13 +101,13 @@ class DancingMenSpec: QuickSpec {
                 // Only Semaphore (0), DancingMen (1), and Masonic (2) and have extra requirements
                 it ("alters input strings to fit the requirements of the current font") {
                     fontManager.inputText = test_string
-                    expect(fontManager.currentFont.name).to(equal("Semaphore"))
+                    expect(fontManager.currentFont().name).to(equal("Semaphore"))
                     expect(fontManager.transformedText()).to(equal(test_semaphore))
                     fontManager.selectFont(1)
-                    expect(fontManager.currentFont.name).to(equal("GL-DancingMen"))
+                    expect(fontManager.currentFont().name).to(equal("GL-DancingMen"))
                     expect(fontManager.transformedText()).to(equal(test_dancing_men))
                     fontManager.selectFont(2)
-                    expect(fontManager.currentFont.name).to(equal("Masonic Cipher"))
+                    expect(fontManager.currentFont().name).to(equal("Masonic Cipher"))
                     expect(fontManager.transformedText()).to(equal(test_masonic))
                     fontManager.selectFont(3)
                     expect(fontManager.transformedText()).to(equal(test_string))
@@ -123,15 +123,15 @@ class DancingMenSpec: QuickSpec {
         describe ("keypadManager") {
             var keypadManager = KeypadManager()
             let delta = 0.5
-            let numButtonsInRow = 8
+            let numButtonsInRow = 7
             
             describe("width, height, margin, topPadding, containerWidth, containerHeight") {
                 it("has proper values set for the dimensions of the keypad buttons") {
-                    expect(keypadManager.width).to(beCloseTo(55, within: delta))
-                    expect(keypadManager.height).to(beCloseTo(55, within: delta))
+                    expect(keypadManager.width).to(beCloseTo(65, within: delta))
+                    expect(keypadManager.height).to(beCloseTo(65, within: delta))
                     expect(keypadManager.topPadding).to(beCloseTo(25, within: delta))
-                    expect(keypadManager.containerWidth).to(beCloseTo(60, within: delta))
-                    expect(keypadManager.containerHeight).to(beCloseTo(60, within: delta))
+                    expect(keypadManager.containerWidth).to(beCloseTo(70, within: delta))
+                    expect(keypadManager.containerHeight).to(beCloseTo(70, within: delta))
                     expect(keypadManager.numOfButtons).to(beCloseTo(0, within: delta))
                 }
                 

@@ -14,6 +14,7 @@ protocol KeypadMasterDelegate {
     func addLetter(letter: Character)
     func currentFontAlphabet() -> String
     func outputText() -> String
+    func inputText() -> String
     func removeLetter()
 }
 
@@ -69,11 +70,14 @@ class KeypadViewController: UIViewController {
         }
     }
     
-    
     // # Mark -Setup functions
     
     func updateText() {
-        outputLabel.text = delegate.outputText()
+        if isPlaintext {
+            outputLabel.text = delegate.inputText()
+        } else {
+            outputLabel.text = delegate.outputText()
+        }
     }
 
     func positionLabel() {
@@ -148,6 +152,7 @@ class KeypadViewController: UIViewController {
         }
         buttons.map {$0.titleLabel!.font = font }
         outputLabel.font = font
+        updateText()
     }
     
     @IBAction func didClickBack() {

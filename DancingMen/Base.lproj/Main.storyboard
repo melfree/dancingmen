@@ -25,9 +25,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v50-E4-Vqa">
-                                <rect key="frame" x="246" y="127" width="108" height="70"/>
+                                <rect key="frame" x="229" y="119" width="146" height="125"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="eM6-8u-EvY"/>
+                                    <constraint firstAttribute="height" constant="125" id="eM6-8u-EvY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -93,11 +93,11 @@
                             <constraint firstItem="jqm-4w-rRk" firstAttribute="leading" secondItem="42q-Mr-mej" secondAttribute="leading" constant="-32" id="JRn-si-J5a"/>
                             <constraint firstItem="jqm-4w-rRk" firstAttribute="baseline" secondItem="teD-f0-7sC" secondAttribute="baseline" id="Q3h-4s-H3q"/>
                             <constraint firstItem="jqm-4w-rRk" firstAttribute="baseline" secondItem="x9j-0A-for" secondAttribute="firstBaseline" id="SSw-75-ccq"/>
-                            <constraint firstItem="42q-Mr-mej" firstAttribute="centerX" secondItem="v50-E4-Vqa" secondAttribute="centerX" id="ZQQ-Tg-04N"/>
-                            <constraint firstItem="v50-E4-Vqa" firstAttribute="centerX" secondItem="GAC-kS-5aU" secondAttribute="centerX" id="aKd-ve-1Bl"/>
-                            <constraint firstItem="v50-E4-Vqa" firstAttribute="top" secondItem="Xlp-wO-TEu" secondAttribute="bottom" constant="107" id="bBy-7d-bJV"/>
+                            <constraint firstItem="42q-Mr-mej" firstAttribute="centerX" secondItem="v50-E4-Vqa" secondAttribute="centerX" constant="-1.5" id="ZQQ-Tg-04N"/>
+                            <constraint firstItem="v50-E4-Vqa" firstAttribute="centerX" secondItem="GAC-kS-5aU" secondAttribute="centerX" constant="2" id="aKd-ve-1Bl"/>
+                            <constraint firstItem="v50-E4-Vqa" firstAttribute="top" secondItem="Xlp-wO-TEu" secondAttribute="bottom" constant="99" id="bBy-7d-bJV"/>
                             <constraint firstItem="x9j-0A-for" firstAttribute="baseline" secondItem="jqm-4w-rRk" secondAttribute="baseline" id="fKG-Jr-YPm"/>
-                            <constraint firstItem="teD-f0-7sC" firstAttribute="leading" secondItem="v50-E4-Vqa" secondAttribute="trailing" constant="8" id="iRW-Jq-a8i"/>
+                            <constraint firstItem="teD-f0-7sC" firstAttribute="leading" secondItem="v50-E4-Vqa" secondAttribute="trailing" constant="-13" id="iRW-Jq-a8i"/>
                             <constraint firstItem="x9j-0A-for" firstAttribute="top" secondItem="Xlp-wO-TEu" secondAttribute="bottom" constant="136" id="ryw-Nf-Qpc"/>
                             <constraint firstItem="42q-Mr-mej" firstAttribute="top" secondItem="jqm-4w-rRk" secondAttribute="bottom" constant="62" id="sGd-5j-aQq"/>
                             <constraint firstItem="x9j-0A-for" firstAttribute="baseline" secondItem="jqm-4w-rRk" secondAttribute="firstBaseline" id="tUT-fp-6Sp"/>
@@ -390,7 +390,7 @@
                                 <rect key="frame" x="64" y="86" width="473" height="162"/>
                             </pickerView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="0.95999999999999996" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8yn-4S-EOH" firstAttribute="top" secondItem="eb6-Ip-J6X" secondAttribute="bottom" constant="66" id="BQH-nn-NQH"/>
                             <constraint firstAttribute="centerX" secondItem="puA-Mk-Odm" secondAttribute="centerX" constant="0.5" id="DzO-qg-upF"/>
@@ -466,7 +466,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="k6Z-9U-Of1" firstAttribute="top" secondItem="HiK-UB-l9c" secondAttribute="bottom" constant="200" id="2mg-uw-lje"/>
                             <constraint firstItem="k6Z-9U-Of1" firstAttribute="leading" secondItem="3Vl-w4-gx7" secondAttribute="leadingMargin" id="6CM-og-uOG"/>

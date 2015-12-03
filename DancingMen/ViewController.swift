@@ -22,13 +22,33 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     @IBOutlet weak var change: UIButton!
     @IBOutlet weak var keypad: UIButton!
     @IBOutlet weak var game: UIButton!
-        
+    
+    let dataManager = DataManager()
+    
     var fontManager = FontManager()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        fontManager = dataManager.fontManager
+        inputField.text = fontManager.inputText
+        
+        setupListeners()
+        setupInputOutputStyles()
+        setupButtons()
+        
+        updateTexts()
+        updateFonts()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // # MARK - Setup events
+    
+    func setupListeners() {
         // Set keyboard listeners
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
@@ -37,7 +57,11 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tap)
         
-        // Set styles for input field
+        // Listen for input text changes
+        inputField.delegate = self
+    }
+    
+    func setupInputOutputStyles() {
         inputField.layer.cornerRadius = 5.0
         inputField.layer.borderColor = UIColor.grayColor().CGColor
         inputField.layer.borderWidth = 1.0
@@ -45,25 +69,14 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
         
         // Set styles for output text
         outputLabel.adjustsFontSizeToFitWidth = true
-        
-        // Listen for input text changes
-        inputField.delegate = self
-        
-        // Styles for buttons
+    }
+    
+    func setupButtons () {
         reset.setFAIcon(FAType.FAEraser, iconSize: 35, forState: .Normal)
         keypad.setFAIcon(FAType.FAKeyboardO, iconSize: 35, forState: .Normal)
         plaintext.setFAIcon(FAType.FAFileTextO, iconSize: 35, forState: .Normal)
         change.setFAIcon(FAType.FAGear, iconSize: 35, forState: .Normal)
         game.setFAIcon(FAType.FAGamepad, iconSize: 35, forState: .Normal)
-        
-        // Make sure font and output text are set
-        updateTexts()
-        updateFonts()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // # MARK - Gesture events
@@ -112,13 +125,16 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     func updateFonts() {
         // Update outputLabel
         outputLabel.font = currentFont()
-        fontTitle.text = fontManager.currentFont.title + " Cipher"
+        fontTitle.text = fontManager.currentFont().title + " Cipher"
     }
     
     func updateTexts() {
         var input = inputField.text
         fontManager.inputText = input
         outputLabel.text = outputText()
+
+        // Save changes to input text and font
+        dataManager.save()
     }
     
     // # MARK - Segue
@@ -152,6 +168,10 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
         return fontManager.transformedText()
     }
     
+    func inputText() -> String {
+        return fontManager.inputText
+    }
+    
     func currentFontAlphabet() -> String {
         return fontManager.currentAlphabet()
     }
@@ -171,7 +191,7 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     }
     
     func currentFont() -> UIFont {
-        var currentFont = fontManager.currentFont
+        var currentFont = fontManager.currentFont()
         var name = currentFont.name
         var size: CGFloat = CGFloat(currentFont.size)
         return UIFont(name: name, size: size)!
@@ -180,7 +200,7 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     // # Mark - Game delegate
     
     func currentFontLarge() -> UIFont {
-        var currentFont = fontManager.currentFont
+        var currentFont = fontManager.currentFont()
         var name = currentFont.name
         var size: CGFloat = CGFloat(currentFont.size * 1.5)
         return UIFont(name: name, size: size)!
@@ -193,7 +213,7 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     // # Mark - Font delegate
     
     func currentFontFlavorText() -> String {
-        return fontManager.currentFont.flavorText
+        return fontManager.currentFont().flavorText
     }
     
     func numberOfFonts() -> Int {
@@ -211,7 +231,7 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     }
     
     func currentFontIndex() -> Int {
-        return fontManager.currentIndex()
+        return fontManager.currentFontIndex
     }
 }
 

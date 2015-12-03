@@ -8,41 +8,46 @@
 
 import Foundation
 
-struct FontManager {
-    let fonts: [FontProtocol] = [Semaphore(), DancingMen(),  Masonic(), Morse(), Maritime(), Braille()]
-    var currentFont: FontProtocol
-    var inputText: String
+class FontManager: NSObject, NSCoding {
+    let fonts: [FontProtocol] = [Semaphore(), DancingMen(), Masonic(), Morse(), Maritime(), Braille()]
+    var currentFontIndex: Int = 0
+    var inputText: String = ""
     
-    init() {
-        inputText = ""
-        currentFont = fonts[0]
+    override init() {
+        super.init()
     }
     
-    mutating func selectFont(index: Int) {
-        currentFont = fonts[index]
+    required init(coder aDecoder: NSCoder) {
+        self.inputText = aDecoder.decodeObjectForKey("inputText") as! String
+        self.currentFontIndex = aDecoder.decodeObjectForKey("currentFontIndex") as! Int
+        super.init()
     }
     
-    func currentIndex () -> Int {
-        for i in 0..<fonts.count {
-            if currentFont.name == fonts[i].name {
-                return i
-            }
-        }
-        return 0
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(inputText, forKey: "inputText")
+        aCoder.encodeObject(currentFontIndex, forKey: "currentFontIndex")
+    }
+    
+    func selectFont(index: Int) {
+        currentFontIndex = index
+    }
+    
+    func currentFont() -> FontProtocol {
+        return fonts[currentFontIndex]
     }
     
     func currentAlphabet() -> String {
-        return currentFont.alphabet
+        return currentFont().alphabet
     }
     
     func transformedText() -> (String) {
+        let font = currentFont()
+        
         // Transform text into array
         let textArray = Array(inputText)
-    
         // Map each value in the array to a new value, as determined by a function
         // passed in from the currentFont struct
-        let mappedArray = currentFont.transform(textArray)
-    
+        let mappedArray = font.transform(textArray)
         // Return the new string
         let transformedText = String(mappedArray)
     

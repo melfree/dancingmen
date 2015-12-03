@@ -28,10 +28,11 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        game.alphabetArray = Array(delegate.currentFontAlphabet())
-        for button in[optionOne,optionTwo,optionThree] {
-          button.titleLabel!.adjustsFontSizeToFitWidth = true
+        for button in [optionOne,optionTwo,optionThree] {
+            button.titleLabel!.adjustsFontSizeToFitWidth = true
+            button.titleLabel!.numberOfLines = 0
         }
+        game.alphabetArray = Array(delegate.currentFontAlphabet())
         game.startNewRound()
         updateOutlets()
     }
@@ -70,7 +71,7 @@ class GameViewController: UIViewController {
     }
     
     func respondToIncorrectAnswer() {
-        self.view.backgroundColor = UIColor(red:0.8,green:0.4,blue:0.4,alpha: 1.0)
+        self.view.backgroundColor = UIColor(red:1.0,green:0.7,blue:0.7,alpha: 1.0)
         UIView.animateWithDuration(0.3, animations:{
             self.view.backgroundColor = UIColor.whiteColor()
             })
@@ -78,8 +79,8 @@ class GameViewController: UIViewController {
     
     func respondToCorrectAnswer () {
         disableGame()
-        self.view.backgroundColor = UIColor.greenColor()
-        UIView.animateWithDuration(0.5, animations:{
+        self.view.backgroundColor = UIColor(red:0.7,green:1.0,blue:0.7,alpha: 1.0)
+        UIView.animateWithDuration(0.4, animations:{
             self.view.backgroundColor = UIColor.whiteColor()
             }, completion: {action in
                 self.resetGame()
@@ -94,12 +95,12 @@ class GameViewController: UIViewController {
         
         let maximum = max(UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
         
-        UIView.animateWithDuration(0.35, animations:{
+        UIView.animateWithDuration(0.3, animations:{
             self.outputLabel.frame = CGRectMake(x - maximum, y, width, height)
             }, completion: {
                 action in
                 self.outputLabel.frame = CGRectMake(x + (2*maximum),y,width,height)
-                UIView.animateWithDuration(0.35, animations:{
+                UIView.animateWithDuration(0.3, animations:{
                     self.game.startNewRound()
                     self.updateOutlets()
                     self.outputLabel.frame = CGRectMake(x, y, width, height)})
@@ -108,6 +109,9 @@ class GameViewController: UIViewController {
     }
     
     func updateOutlets() {
+        for button in [optionOne,optionTwo,optionThree] {
+            button.alpha = 0
+        }
         var optionFont = delegate.systemFontLarge()
         var labelFont = delegate.currentFontLarge()
         if game.isSystemFont {
@@ -116,7 +120,6 @@ class GameViewController: UIViewController {
         }
         var index = 0
         for button in [optionOne,optionTwo,optionThree] {
-            button.alpha = 0
             button.titleLabel!.font = optionFont
             button.setTitle(game.answerString(index),forState: UIControlState.Normal)
             index += 1
