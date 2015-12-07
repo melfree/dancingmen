@@ -1,0 +1,16 @@
+PODS:
+  - Font-Awesome-Swift (1.1.0)
+  - Nimble (1.0.0)
+  - Quick (0.3.1)
+
+DEPENDENCIES:
+  - Font-Awesome-Swift (~> 1.1.0)
+  - Nimble (~> 1.0.0)
+  - Quick (~> 0.3.0)
+
+SPEC CHECKSUMS:
+  Font-Awesome-Swift: e9c7501987071d207a098bb9b3465d1f94ce7b39
+  Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
+  Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
+
+COCOAPODS: 0.38.2

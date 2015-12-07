@@ -1,0 +1,6 @@
+framework module Pods_DancingMenTests {
+  umbrella header "Pods-DancingMenTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
