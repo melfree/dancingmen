@@ -31,6 +31,7 @@ class GameViewController: UIViewController {
         for button in [optionOne,optionTwo,optionThree] {
             button.titleLabel!.adjustsFontSizeToFitWidth = true
             button.titleLabel!.numberOfLines = 0
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
         }
         game.alphabetArray = Array(delegate.currentFontAlphabet())
         game.startNewRound()

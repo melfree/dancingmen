@@ -91,6 +91,10 @@ class KeypadViewController: UIViewController {
         var i = 0
         
         if lengthOfAlphabet > 30 { keypadManager.minimize() }
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        if screenHeight < 660
+          {  keypadManager.minimize() }
+        
         keypadManager.setNumOfButtonsInRow(frameWidth: Float(self.view.frame.width))
         let h = CGFloat(keypadManager.height)
         let w = CGFloat(keypadManager.width)

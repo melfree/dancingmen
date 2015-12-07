@@ -39,6 +39,9 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
         
         updateTexts()
         updateFonts()
+        
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        print(screenHeight)
     }
 
     override func didReceiveMemoryWarning() {

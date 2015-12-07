@@ -31,6 +31,8 @@ class FontViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         fontPicker.dataSource = self
         fontPicker.selectRow(delegate.currentFontIndex(), inComponent: 0, animated: false)
         
+        fontLabel.adjustsFontSizeToFitWidth = true
+        
         updateFont()
     }
 
@@ -68,10 +70,6 @@ class FontViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     // # MARK - IB actions
     
     @IBAction func didClickBack() {
-        goBack()
-    }
-    
-    func goBack() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
