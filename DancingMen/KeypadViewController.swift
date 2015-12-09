@@ -123,12 +123,13 @@ class KeypadViewController: UIViewController {
                 // Add buttonClicked event
                 button.addTarget(self, action: "buttonClicked:", forControlEvents: .TouchUpInside)
                 
-                // Add to array so we can toggle the font later
-                buttons.append(button)
+                
             } else {
                 button.backgroundColor = UIColor(red:0.8,green:0.4,blue:0.4,alpha: 1.0)
                 button.addTarget(self, action: "backspaceClicked:", forControlEvents: .TouchUpInside)
             }
+            // Add to array so we can toggle the font later
+            buttons.append(button)
             self.view.addSubview(button)
             
             i++
