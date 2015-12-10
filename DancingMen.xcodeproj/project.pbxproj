@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0DFDE32CA6D894C035A89678 /* Pods_DancingMen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68787554BC944BBE698AECD3 /* Pods_DancingMen.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		284031F9267C5F56F9FEEBBD /* Pods_DancingMenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22711D6373DC066243E92070 /* Pods_DancingMenTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0DFDE32CA6D894C035A89678 /* Pods_DancingMen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68787554BC944BBE698AECD3 /* Pods_DancingMen.framework */; };
+		284031F9267C5F56F9FEEBBD /* Pods_DancingMenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22711D6373DC066243E92070 /* Pods_DancingMenTests.framework */; };
 		D42A04581BF231F500700E6F /* KeypadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A04571BF231F500700E6F /* KeypadViewController.swift */; };
 		D42A045A1BF2AAFB00700E6F /* FontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A04591BF2AAFB00700E6F /* FontViewController.swift */; };
 		D42A045D1BF4C68D00700E6F /* KeypadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A045C1BF4C68D00700E6F /* KeypadManager.swift */; };
@@ -293,7 +293,8 @@
 		D4EFE1441BE8E27600672746 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = TG;
 				TargetAttributes = {
 					D4EFE14B1BE8E27600672746 = {
@@ -537,6 +538,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -552,7 +554,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -591,7 +593,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -606,6 +608,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DancingMen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "TG.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -617,6 +620,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DancingMen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "TG.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -636,6 +640,7 @@
 				);
 				INFOPLIST_FILE = DancingMenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "TG.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DancingMen.app/DancingMen";
 			};
@@ -652,6 +657,7 @@
 				);
 				INFOPLIST_FILE = DancingMenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "TG.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DancingMen.app/DancingMen";
 			};

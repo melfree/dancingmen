@@ -39,7 +39,7 @@ struct KeypadManager {
         height = height * minimizer
     }
     
-    mutating func setNumOfButtonsInRow(#frameWidth: Float) {
+    mutating func setNumOfButtonsInRow(frameWidth frameWidth: Float) {
         centeringPadding = (frameWidth % containerWidth) / 2.0
         numOfButtons = Int(frameWidth/containerWidth)
     }

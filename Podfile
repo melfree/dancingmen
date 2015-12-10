@@ -3,13 +3,12 @@ platform :ios, '8.0'
 use_frameworks!
 
 def pods
-  pod 'Font-Awesome-Swift', '~> 1.1.0'
+  pod 'Font-Awesome-Swift', '~> 1.4.3'
 end
 
 def testing_pods
-  # If you're using Xcode 6 / Swift 1.2
-  pod 'Quick', '~> 0.3.0'
-  pod 'Nimble', '~> 1.0.0'
+  pod 'Quick', '~> 0.8.0'
+  pod 'Nimble', '~> 3.0.0'
 end
 
 target 'DancingMen' do

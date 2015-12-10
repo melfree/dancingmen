@@ -43,7 +43,7 @@ struct GameManager {
         let c = alphabetArray.count
         for i in 0..<(c - 1) {
             let j = Int(arc4random_uniform(UInt32(c - i))) + i
-            swap(&alphabetArray[i], &alphabetArray[j])
+            if (i != j) {swap(&alphabetArray[i], &alphabetArray[j])}
         }
     }
 }

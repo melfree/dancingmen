@@ -33,7 +33,7 @@ class GameViewController: UIViewController {
             button.titleLabel!.numberOfLines = 0
             button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
         }
-        game.alphabetArray = Array(delegate.currentFontAlphabet())
+        game.alphabetArray = Array(delegate.currentFontAlphabet().characters)
         game.startNewRound()
         updateOutlets()
     }

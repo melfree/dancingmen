@@ -28,12 +28,12 @@ class DataManager {
     }
     
     func documentsDirectory() -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as! [String]
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) 
         return paths[0]
     }
     
     func dataFilePath() -> String {
-        return documentsDirectory().stringByAppendingPathComponent("DancingMen.plist")
+        return (documentsDirectory() as NSString).stringByAppendingPathComponent("DancingMen.plist")
     }
     
     func save() {

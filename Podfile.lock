@@ -1,16 +1,16 @@
 PODS:
-  - Font-Awesome-Swift (1.1.0)
-  - Nimble (1.0.0)
-  - Quick (0.3.1)
+  - Font-Awesome-Swift (1.4.3)
+  - Nimble (3.0.0)
+  - Quick (0.8.0)
 
 DEPENDENCIES:
-  - Font-Awesome-Swift (~> 1.1.0)
-  - Nimble (~> 1.0.0)
-  - Quick (~> 0.3.0)
+  - Font-Awesome-Swift (~> 1.4.3)
+  - Nimble (~> 3.0.0)
+  - Quick (~> 0.8.0)
 
 SPEC CHECKSUMS:
-  Font-Awesome-Swift: e9c7501987071d207a098bb9b3465d1f94ce7b39
-  Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
-  Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
+  Font-Awesome-Swift: fb4184509f353a648324d88b0f3dd3cf1d6162bf
+  Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
+  Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

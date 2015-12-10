@@ -44,7 +44,7 @@ class FontViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     // # Mark - Font label
     
     func updateFont() {
-        var row = fontPicker.selectedRowInComponent(0)
+        let row = fontPicker.selectedRowInComponent(0)
         delegate.selectFont(row)
         fontLabel.text = delegate.currentFontFlavorText()
     }

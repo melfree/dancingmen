@@ -9,12 +9,13 @@ public extension UIBarButtonItem {
     func setFAIcon(icon: FAType, iconSize: CGFloat) {
         
         FontLoader.loadFontIfNeeded()
-        var font = UIFont(name: FAStruct.FontName, size: iconSize)
+        let font = UIFont(name: FAStruct.FontName, size: iconSize)
         
         assert(font != nil, FAStruct.ErrorAnnounce)
         setTitleTextAttributes([NSFontAttributeName: font!], forState: .Normal)
         title = icon.text
     }
+    
     
     /**
     To set an icon, use i.e. `barName.setFAIcon(FAType.FAGithub, iconSize: 35)`
@@ -31,13 +32,30 @@ public extension UIBarButtonItem {
         
         get {
             if let title = title {
-                
-                if let index =  find(FAIcons, title) {
+                if let index =  FAIcons.indexOf(title) {
                     return FAType(rawValue: index)
                 }
             }
             return nil
         }
+    }
+    
+    
+    func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat) {
+        
+        FontLoader.loadFontIfNeeded()
+        let font = UIFont(name: FAStruct.FontName, size: size)
+        
+        assert(font != nil, FAStruct.ErrorAnnounce)
+        setTitleTextAttributes([NSFontAttributeName: font!], forState: .Normal)
+        
+        var text = prefixText
+        if let iconText = icon?.text {
+            
+            text += iconText
+        }
+        text += postfixText
+        title = text
     }
 }
 
@@ -58,6 +76,7 @@ public extension UIButton {
         }
     }
     
+    
     /**
     To set an icon, use i.e. `buttonName.setFAIcon(FAType.FAGithub, iconSize: 35, forState: .Normal)`
     */
@@ -69,7 +88,39 @@ public extension UIButton {
             titleLabel?.font = UIFont(name: fontName, size: iconSize)
         }
     }
+    
+    
+    func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?, forState: UIControlState, iconSize: CGFloat? = nil) {
+        
+        if let titleLabel = titleLabel {
+            
+            FontLoader.loadFontIfNeeded()
+            let textFont = UIFont(name: FAStruct.FontName, size: size ?? titleLabel.font.pointSize)
+            assert(textFont != nil, FAStruct.ErrorAnnounce)
+            titleLabel.font = textFont!
+            
+            let textAttribute = [NSFontAttributeName : titleLabel.font]
+            let myString = NSMutableAttributedString(string: prefixText, attributes: textAttribute )
+            
+            
+            if let iconText = icon?.text {
+                
+                let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? titleLabel.font.pointSize)!
+                let iconAttribute = [NSFontAttributeName : iconFont]
+                
+                
+                let iconString = NSAttributedString(string: iconText, attributes: iconAttribute)
+                myString.appendAttributedString(iconString)
+            }
+            
+            let postfixString = NSAttributedString(string: postfixText)
+            myString.appendAttributedString(postfixString)
+            
+            setAttributedTitle(myString, forState: .Normal)
+        }
+    }
 }
+
 
 public extension UILabel {
     
@@ -92,8 +143,8 @@ public extension UILabel {
         
         get {
             if let text = text {
-                
-                if let index =  find(FAIcons, text) {
+              
+                if let index =  FAIcons.indexOf(text) {
                     return FAType(rawValue: index)
                 }
             }
@@ -109,7 +160,99 @@ public extension UILabel {
         FAIcon = icon
         font = UIFont(name: font.fontName, size: iconSize)
     }
+    
+    
+    func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?, iconSize: CGFloat? = nil) {
+        
+        FontLoader.loadFontIfNeeded()
+        let textFont = UIFont(name: FAStruct.FontName, size: size ?? self.font.pointSize)
+        assert(textFont != nil, FAStruct.ErrorAnnounce)
+        font = textFont!
+        
+        let textAttribute = [NSFontAttributeName : font]
+        let myString = NSMutableAttributedString(string: prefixText, attributes: textAttribute )
+        
+        
+        if let iconText = icon?.text {
+            
+            let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? self.font.pointSize)!
+            let iconAttribute = [NSFontAttributeName : iconFont]
+
+            
+            let iconString = NSAttributedString(string: iconText, attributes: iconAttribute)
+            myString.appendAttributedString(iconString)
+        }
+        
+        let postfixString = NSAttributedString(string: postfixText)
+        myString.appendAttributedString(postfixString)
+        
+        
+        self.attributedText = myString
+    }
+    
 }
+
+
+// Original idea from https://github.com/thii/FontAwesome.swift/blob/master/FontAwesome/FontAwesome.swift
+public extension UIImageView {
+
+    /**
+     Create UIImage from FAType
+     */
+    public func setFAIconWithName(icon: FAType, textColor: UIColor, backgroundColor: UIColor = UIColor.clearColor()) {
+        
+        self.image = UIImage(icon: icon, size: frame.size, textColor: textColor, backgroundColor: backgroundColor)
+    }
+}
+
+
+public extension UITabBarItem {
+    
+    public func setFAIcon(icon: FAType) {
+        
+        image = UIImage(icon: icon, size: CGSize(width: 30, height: 30))
+    }
+}
+
+
+public extension UISegmentedControl {
+    
+    public func setFAIcon(icon: FAType, forSegmentAtIndex segment: Int) {
+        
+        FontLoader.loadFontIfNeeded()
+        let font = UIFont(name: FAStruct.FontName, size: 23)
+        assert(font != nil, FAStruct.ErrorAnnounce)
+        setTitleTextAttributes([NSFontAttributeName: font!], forState: .Normal)
+        setTitle(icon.text, forSegmentAtIndex: segment)
+    }
+}
+
+
+public extension UIImage {
+    
+    public convenience init(icon: FAType, size: CGSize, textColor: UIColor = UIColor.blackColor(), backgroundColor: UIColor = UIColor.clearColor()) {
+        
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = NSTextAlignment.Center
+        
+        // Taken from FontAwesome.io's Fixed Width Icon CSS
+        let fontAspectRatio: CGFloat = 1.28571429
+        let fontSize = min(size.width / fontAspectRatio, size.height)
+        
+        FontLoader.loadFontIfNeeded()
+        let font = UIFont(name: FAStruct.FontName, size: fontSize)
+        assert(font != nil, FAStruct.ErrorAnnounce)
+        let attributes = [NSFontAttributeName: font!, NSForegroundColorAttributeName: textColor, NSBackgroundColorAttributeName: backgroundColor, NSParagraphStyleAttributeName: paragraph]
+        
+        let attributedString = NSAttributedString(string: icon.text!, attributes: attributes)
+        UIGraphicsBeginImageContextWithOptions(size, false , 0.0)
+        attributedString.drawInRect(CGRectMake(0, (size.height - fontSize) / 2, size.width, fontSize))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(CGImage: image.CGImage!, scale: image.scale, orientation: image.imageOrientation)
+    }
+}
+
 
 private struct FAStruct {
     
@@ -165,6 +308,7 @@ public enum FAType: Int {
         
         return FAIcons.count
     }
+    
     
     var text: String? {
         

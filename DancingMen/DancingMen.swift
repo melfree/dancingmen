@@ -19,7 +19,7 @@ struct DancingMen: FontProtocol {
         // DancingMen requires that the last letter of every word is capitalized.
         // Numbers become letters first, though, as in Masonic's transform method.
         var newTextArray = Masonic().transform(textArray)
-        var count = newTextArray.count
+        let count = newTextArray.count
         var i = 0
         var newArray = [Character]()
         while i < count {

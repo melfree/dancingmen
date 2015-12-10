@@ -57,7 +57,7 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
         
         // Set tap gesture listener for dismissing keyboard
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tap)
         
         // Listen for input text changes
@@ -103,7 +103,7 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     
     func updateHeights(sender: NSNotification) {
         if let userInfo = sender.userInfo {
-            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
                 bottomLayout.constant = keyboardHeight
                 UIView.animateWithDuration(0.25, animations: { () -> Void in self.view.layoutIfNeeded() })
             }
@@ -132,7 +132,7 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     }
     
     func updateTexts() {
-        var input = inputField.text
+        let input = inputField.text
         fontManager.inputText = input
         outputLabel.text = outputText()
 
@@ -180,10 +180,10 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     }
     
     func removeLetter() {
-        let input = inputField.text
-        let sizeOfInput = count(input)
+        let input = inputField.text.characters
+        let sizeOfInput = input.count
         if sizeOfInput > 0 {
-          inputField.text = dropLast(input)
+          inputField.text = String(input.dropLast())
           updateTexts()
         }
     }
@@ -194,18 +194,18 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     }
     
     func currentFont() -> UIFont {
-        var currentFont = fontManager.currentFont()
-        var name = currentFont.name
-        var size: CGFloat = CGFloat(currentFont.size)
+        let currentFont = fontManager.currentFont()
+        let name = currentFont.name
+        let size: CGFloat = CGFloat(currentFont.size)
         return UIFont(name: name, size: size)!
     }
     
     // # Mark - Game delegate
     
     func currentFontLarge() -> UIFont {
-        var currentFont = fontManager.currentFont()
-        var name = currentFont.name
-        var size: CGFloat = CGFloat(currentFont.size * 1.5)
+        let currentFont = fontManager.currentFont()
+        let name = currentFont.name
+        let size: CGFloat = CGFloat(currentFont.size * 1.5)
         return UIFont(name: name, size: size)!
     }
     

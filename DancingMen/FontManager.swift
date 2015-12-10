@@ -44,7 +44,7 @@ class FontManager: NSObject, NSCoding {
         let font = currentFont()
         
         // Transform text into array
-        let textArray = Array(inputText)
+        let textArray = Array(inputText.characters)
         // Map each value in the array to a new value, as determined by a function
         // passed in from the currentFont struct
         let mappedArray = font.transform(textArray)

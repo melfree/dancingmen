@@ -81,13 +81,14 @@ class KeypadViewController: UIViewController {
     }
 
     func positionLabel() {
-        topConstraint.constant = CGFloat(keypadManager.y(forItem: 0) + keypadManager.height * (Float(buttons.count / keypadManager.numOfButtons) + 1) + 5)
+        let y = keypadManager.y(forItem: 0)
+        topConstraint.constant = CGFloat(y + keypadManager.height * (Float(buttons.count / keypadManager.numOfButtons) + 1) + 5)
     }
     
     func createButtons() {
         let font = delegate.currentFont()
-        let alphabet = String(delegate.currentFontAlphabet()) + "  "
-        var lengthOfAlphabet = count(delegate.currentFontAlphabet()) + 2
+        let alphabet = (String(delegate.currentFontAlphabet()) + "  ").characters
+        let lengthOfAlphabet = alphabet.count + 1
         var i = 0
         
         if lengthOfAlphabet > 30 { keypadManager.minimize() }
@@ -137,7 +138,7 @@ class KeypadViewController: UIViewController {
     }
     
     func buttonClicked(sender: UIButton) {
-        var input = sender.titleLabel!.text
+        let input = sender.titleLabel!.text
         delegate.addLetter(Character(input!))
         updateText()
     }
@@ -155,16 +156,14 @@ class KeypadViewController: UIViewController {
         if !(isPlaintext) {
             font = delegate.currentFont()
         }
-        buttons.map {$0.titleLabel!.font = font }
+        for button in buttons {
+          button.titleLabel!.font = font
+        }
         outputLabel.font = font
         updateText()
     }
     
     @IBAction func didClickBack() {
-        goBack()
-    }
-    
-    func goBack() {
       self.dismissViewControllerAnimated(true, completion: nil)
     }
 

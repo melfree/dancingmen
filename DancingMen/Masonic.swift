@@ -17,8 +17,8 @@ struct Masonic: FontProtocol {
     
     func transform(textArray: [Character]) -> [Character] {
         // Masonic requires that numbers become letters.
-        return map(textArray) { char in
-            var k = String(char)
+        return textArray.map { char in
+            let k = String(char)
             for i in 0...9
             {
                 if String(i) == k {

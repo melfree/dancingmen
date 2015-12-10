@@ -15,12 +15,12 @@ class DancingMenSpec: QuickSpec {
         
         describe("fonts") {
             // There are 6 font structures.
-            var dancingMen = DancingMen()
-            var morse = Morse()
-            var braille = Braille()
-            var masonic = Masonic()
-            var semaphore = Semaphore()
-            var maritime = Maritime()
+            //            let dancingMen = DancingMen()
+            //            let morse = Morse()
+            //            let braille = Braille()
+            //            let masonic = Masonic()
+            //            let semaphore = Semaphore()
+            //            let maritime = Maritime()
             
             // Fonts should have a unique font name (tested by FontManager test).
             // They also have a conversioin method (also tested by FontManager tests)
@@ -30,7 +30,7 @@ class DancingMenSpec: QuickSpec {
         }
         
         describe("fontManager") {
-            var fontManager = FontManager()
+            let fontManager = FontManager()
             let test_string = "TEST string 1230"
             let test_semaphore = "test string 1230"
             let test_dancing_men = "tesTstrinGabcJ"
@@ -41,9 +41,9 @@ class DancingMenSpec: QuickSpec {
                     expect(fontManager.fonts.count).to(equal(6))
                 }
                 it("has only unique fonts") {
-                    var fontNamesSoFar: [String] = []
+                    let fontNamesSoFar: [String] = []
                     expect(fontManager.fonts.reduce(fontNamesSoFar, combine: {a,b in
-                        if (contains(a,b.name)) {
+                        if (a.contains(b.name)) {
                             return a
                         }
                         else {
