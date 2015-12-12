@@ -35,6 +35,7 @@ class DancingMenSpec: QuickSpec {
             let test_semaphore = "test string 1230"
             let test_dancing_men = "tesTstrinGabcJ"
             let test_masonic = "TEST string ABCJ"
+            let test_morse = "tesT strinG 1230"
             
             describe("fonts") {
                 it("holds 6 fonts") {
@@ -110,7 +111,8 @@ class DancingMenSpec: QuickSpec {
                     expect(fontManager.currentFont().name).to(equal("Masonic Cipher"))
                     expect(fontManager.transformedText()).to(equal(test_masonic))
                     fontManager.selectFont(3)
-                    expect(fontManager.transformedText()).to(equal(test_string))
+                    expect(fontManager.currentFont().name).to(equal("morse"))
+                    expect(fontManager.transformedText()).to(equal(test_morse))
                     fontManager.selectFont(4)
                     expect(fontManager.transformedText()).to(equal(test_string))
                     fontManager.selectFont(5)
