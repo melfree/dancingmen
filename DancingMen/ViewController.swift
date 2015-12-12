@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
         super.viewDidLoad()
         
         fontManager = dataManager.fontManager
+        inputField.becomeFirstResponder()
         inputField.text = fontManager.inputText
         
         setupListeners()
@@ -39,9 +40,6 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
         
         updateTexts()
         updateFonts()
-        
-        let screenHeight = UIScreen.mainScreen().bounds.height
-        print(screenHeight)
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,9 +73,9 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     }
     
     func setupButtons () {
-        reset.setFAIcon(FAType.FAEraser, iconSize: 35, forState: .Normal)
+        reset.setFAIcon(FAType.FATimes, iconSize: 35, forState: .Normal)
         keypad.setFAIcon(FAType.FAKeyboardO, iconSize: 35, forState: .Normal)
-        plaintext.setFAIcon(FAType.FAFileTextO, iconSize: 35, forState: .Normal)
+        plaintext.setFAIcon(FAType.FAInfoCircle, iconSize: 30, forState: .Normal)
         change.setFAIcon(FAType.FAGear, iconSize: 35, forState: .Normal)
         game.setFAIcon(FAType.FAGamepad, iconSize: 35, forState: .Normal)
     }
@@ -205,12 +203,12 @@ class ViewController: UIViewController, UITextViewDelegate, PlaintextMasterDeleg
     func currentFontLarge() -> UIFont {
         let currentFont = fontManager.currentFont()
         let name = currentFont.name
-        let size: CGFloat = CGFloat(currentFont.size * 1.5)
+        let size: CGFloat = CGFloat(currentFont.size * 2)
         return UIFont(name: name, size: size)!
     }
     
     func systemFontLarge() -> UIFont {
-        return UIFont.systemFontOfSize(45)
+        return UIFont.systemFontOfSize(60)
     }
     
     // # Mark - Font delegate

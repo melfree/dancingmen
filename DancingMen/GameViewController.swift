@@ -16,6 +16,8 @@ protocol GameMasterDelegate {
 
 class GameViewController: UIViewController {
     var delegate: GameMasterDelegate!
+    
+    @IBOutlet weak var bottomLayout: NSLayoutConstraint!
 
     @IBOutlet weak var outputLabel: UILabel!
     @IBOutlet weak var optionOne: UIButton!
@@ -28,11 +30,11 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        for button in [optionOne,optionTwo,optionThree] {
-            button.titleLabel!.adjustsFontSizeToFitWidth = true
-            button.titleLabel!.numberOfLines = 0
-            button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
-        }
+        bottomLayout.constant = view.bounds.size.height / 2 - 100
+        
+        setupButtons()
+        setupLabel()
+        
         game.alphabetArray = Array(delegate.currentFontAlphabet().characters)
         game.startNewRound()
         updateOutlets()
@@ -41,6 +43,22 @@ class GameViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Setup
+    
+    func setupLabel() {
+        outputLabel.adjustsFontSizeToFitWidth = true
+        outputLabel.numberOfLines = 1
+        outputLabel.lineBreakMode = NSLineBreakMode.ByClipping
+    }
+    
+    func setupButtons() {
+        for button in [optionOne,optionTwo,optionThree] {
+            button.titleLabel!.adjustsFontSizeToFitWidth = true
+            button.layer.cornerRadius = button.bounds.size.width / 2.0 - 10
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
+        }
     }
     
     // # MARK - IB actions
@@ -110,9 +128,6 @@ class GameViewController: UIViewController {
     }
     
     func updateOutlets() {
-        for button in [optionOne,optionTwo,optionThree] {
-            button.alpha = 0
-        }
         var optionFont = delegate.systemFontLarge()
         var labelFont = delegate.currentFontLarge()
         if game.isSystemFont {
@@ -121,11 +136,13 @@ class GameViewController: UIViewController {
         }
         var index = 0
         for button in [optionOne,optionTwo,optionThree] {
+            button.alpha = 0
             button.titleLabel!.font = optionFont
             button.setTitle(game.answerString(index),forState: UIControlState.Normal)
             index += 1
             button.alpha = 1
         }
+        
         outputLabel.font = labelFont
         outputLabel.text = game.answerString()
     }

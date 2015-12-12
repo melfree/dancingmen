@@ -12,7 +12,7 @@ struct GameManager {
     // Define unchanging values used for dimensions of keypad buttons.
     var alphabetArray: [Character] = []
     var answerIndex = 0
-    var isSystemFont = true
+    var isSystemFont = false
     
     func isAnswer(guess: String) -> Bool {
         let answer = answerString()
@@ -39,11 +39,11 @@ struct GameManager {
     
     mutating func startNewRound() {
         answerIndex = Int(arc4random_uniform(UInt32(2)+1))
-        isSystemFont = (Int(arc4random_uniform(UInt32(1)+1)) == 1)
         let c = alphabetArray.count
         for i in 0..<(c - 1) {
             let j = Int(arc4random_uniform(UInt32(c - i))) + i
             if (i != j) {swap(&alphabetArray[i], &alphabetArray[j])}
         }
+        isSystemFont = (Int(arc4random_uniform(UInt32(1)+1)) == 1)
     }
 }

@@ -88,7 +88,7 @@ class KeypadViewController: UIViewController {
     func createButtons() {
         let font = delegate.currentFont()
         let alphabet = (String(delegate.currentFontAlphabet()) + "  ").characters
-        let lengthOfAlphabet = alphabet.count + 1
+        let lengthOfAlphabet = alphabet.count
         var i = 0
         
         if lengthOfAlphabet > 30 { keypadManager.minimize() }

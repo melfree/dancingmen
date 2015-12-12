@@ -16,6 +16,24 @@ struct Morse: FontProtocol {
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     
     func transform(textArray: [Character]) -> [Character] {
-        return textArray
+        // Lowercase
+        let count = textArray.count
+        var i = 0
+        var newArray = [Character]()
+        while i < count {
+            var oldVal = String(textArray[i])
+            if ( (i+1 < count) &&
+                (alphabet.uppercaseString.rangeOfString(String(textArray[i+1]).uppercaseString) != nil) )
+            {
+                // Any letter which precedes another letter is lowercase
+                oldVal = oldVal.lowercaseString
+            } else {
+                // All other letters are uppercase
+                oldVal = oldVal.uppercaseString
+            }
+            newArray.append(Character(oldVal))
+            i++
+        }
+        return newArray
     }
 }

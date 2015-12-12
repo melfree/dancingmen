@@ -9,13 +9,10 @@
 import UIKit
 
 protocol PlaintextMasterDelegate {
-    func currentFont() -> UIFont
-    func outputText() -> String
 }
 
 class PlaintextViewController: UIViewController {
 
-    @IBOutlet weak var close: UIButton!
     @IBOutlet weak var outputLabel: UILabel!
     
     var delegate: PlaintextMasterDelegate!
@@ -24,8 +21,6 @@ class PlaintextViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        outputLabel.text = delegate.outputText()
-        outputLabel.font = delegate.currentFont()
         outputLabel.adjustsFontSizeToFitWidth = true
         outputLabel.numberOfLines = 0
     }
