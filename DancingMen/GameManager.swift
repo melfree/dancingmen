@@ -11,8 +11,9 @@ import Foundation
 struct GameManager {
     // Define unchanging values used for dimensions of keypad buttons.
     var alphabetArray: [Character] = []
+    var alphabetSize = 0
     var answerIndex = 0
-    var isSystemFont = false
+    var isSystemFont = true
     
     func isAnswer(guess: String) -> Bool {
         let answer = answerString()
@@ -37,13 +38,27 @@ struct GameManager {
         }
     }
     
+    // There is a bug in XCode buttons that requires
+    // the first round starts with isSystemFont = true.
+    // The button UiLabel gets clipped on the custom font later on,
+    // iff it is initialized with the system font.
+    mutating func startFirstRound() {
+        alphabetSize = alphabetArray.count
+        
+        shuffleAlphabet()
+    }
+    
     mutating func startNewRound() {
-        answerIndex = Int(arc4random_uniform(UInt32(2)+1))
-        let c = alphabetArray.count
-        for i in 0..<(c - 1) {
-            let j = Int(arc4random_uniform(UInt32(c - i))) + i
-            if (i != j) {swap(&alphabetArray[i], &alphabetArray[j])}
-        }
+        shuffleAlphabet()
+        
         isSystemFont = (Int(arc4random_uniform(UInt32(1)+1)) == 1)
+    }
+    
+    mutating func shuffleAlphabet() {
+      answerIndex = Int(arc4random_uniform(UInt32(2)+1))
+      for i in 0..<(alphabetSize - 1) {
+        let j = Int(arc4random_uniform(UInt32(alphabetSize - i))) + i
+        if (i != j) {swap(&alphabetArray[i], &alphabetArray[j])}
+      }
     }
 }

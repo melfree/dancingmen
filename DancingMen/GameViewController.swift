@@ -36,7 +36,7 @@ class GameViewController: UIViewController {
         setupLabel()
         
         game.alphabetArray = Array(delegate.currentFontAlphabet().characters)
-        game.startNewRound()
+        game.startFirstRound()
         updateOutlets()
     }
 
